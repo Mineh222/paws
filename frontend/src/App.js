@@ -5,7 +5,7 @@ import SignupFormPage from "./components/SignupFormPage";
 import Daycares from "./components/Daycares";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
-import CreateDaycareForm from "./components/CreateDaycareForm";
+import DaycareFormModal from "./components/DaycareFormModal";
 
 function App() {
   const dispatch = useDispatch();
@@ -24,9 +24,6 @@ function App() {
           </Route>
           <Route exact path='/api/daycares'>
             <Daycares />
-          </Route>
-          <Route path='/api/daycares/test'>
-            <CreateDaycareForm />
           </Route>
           <Route>
             Page not found.

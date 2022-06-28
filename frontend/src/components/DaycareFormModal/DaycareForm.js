@@ -30,6 +30,7 @@ const CreateDaycareForm = () => {
 
         if (createdDaycare) {
             reset()
+            // history.push(`/api/daycares`);
         }
     }
 

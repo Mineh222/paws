@@ -41,7 +41,7 @@ const validatePostDaycare = [
     handleValidationErrors
 ];
 
-router.post('/test', requireAuth, validatePostDaycare, asyncHandler(async (req, res) => {
+router.post('/', requireAuth, validatePostDaycare, asyncHandler(async (req, res) => {
     const {
         ownerId,
         name,
