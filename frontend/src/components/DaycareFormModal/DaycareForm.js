@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { thunkCreateDaycare } from "../../store/daycares";
 
@@ -12,6 +12,14 @@ const CreateDaycareForm = ( {setTrigger} ) => {
     const [phoneNumber, setPhoneNumber] = useState('');
     const [businessHours, setBusinessHours] = useState('');
     const [image, setImage] = useState('');
+    const [validationErrors, setValidationErrors] = useState([]);
+
+    useEffect(() => {
+        const errors = [];
+        if (phoneNumber.length !== 10) errors.push("Please enter a valid phone number")
+
+        setValidationErrors(errors)
+    }, [phoneNumber]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -46,7 +54,17 @@ const CreateDaycareForm = ( {setTrigger} ) => {
     return (
         <section className="form-container">
             <form className="create-daycare-form" onSubmit={handleSubmit}>
-                Set up your doggy day care business on Paws!
+                <h2>Set up your doggy day care business on Paws!</h2>
+                {validationErrors.length > 0 && (
+                    <div>
+                        Please fix following errors before submitting:
+                        <ul className="errors">
+                          {validationErrors.map(error => (
+                            <li key={error}>{error}</li>
+                          ))}
+                        </ul>
+                     </div>
+                )}
                 <label>
                     Name
                     <input
@@ -75,7 +93,7 @@ const CreateDaycareForm = ( {setTrigger} ) => {
                     Phone Number
                     <input
                         type="text"
-                        placeholder="(xxx) xxx-xxxx"
+                        placeholder="xxxxxxxxxx"
                         required
                         value={phoneNumber}
                         onChange={e => setPhoneNumber(e.target.value)} />
