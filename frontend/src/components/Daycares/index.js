@@ -19,8 +19,6 @@ export default function Daycares(){
         }
     }, [selectorDaycares])
 
-    // console.log(daycare);
-
     return (
         <main>
             {daycare.map(daycare => {

@@ -1,9 +1,10 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { thunkCreateDaycare } from "../../store/daycares";
 
 const CreateDaycareForm = () => {
     const dispatch = useDispatch();
+    const sessionUser = useSelector((state) => state.session.user)
 
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
@@ -16,6 +17,7 @@ const CreateDaycareForm = () => {
         e.preventDefault();
 
         const payload = {
+            ownerId: sessionUser.id,
             name,
             description,
             address,
