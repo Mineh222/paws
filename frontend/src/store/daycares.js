@@ -2,6 +2,7 @@ import { csrfFetch } from './csrf';
 
 // types
 const GET_DAYCARES = 'daycares/getDaycares'
+const CREATE_DAYCARE = 'daycares/createDaycare'
 
 // actions creators
 const actionGetDaycares = (daycares) => {
@@ -10,6 +11,13 @@ const actionGetDaycares = (daycares) => {
         daycares
     };
 };
+
+const actionCreateDaycare = (daycare) => {
+    return {
+        type: CREATE_DAYCARE,
+        daycare
+    }
+}
 
 // thunks
 export const thunkGetDaycares = () => async dispatch => {
@@ -22,6 +30,20 @@ export const thunkGetDaycares = () => async dispatch => {
     }
 };
 
+export const thunkCreateDaycare = (daycare) => async dispatch => {
+    const response = await csrfFetch('/api/daycares', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(daycare)
+    })
+
+    if (response.ok) {
+        const newDaycare = await response.json();
+        dispatch(actionCreateDaycare(newDaycare));
+        return newDaycare
+    }
+}
+
 const daycareReducer = (state = {}, action) => {
 
     let newState = {...state}
@@ -31,6 +53,9 @@ const daycareReducer = (state = {}, action) => {
             action.daycares.forEach(daycare => {
                 newState[daycare.id] = daycare
             })
+            return newState
+        case CREATE_DAYCARE:
+            newState[action.daycare.id] = action.daycare
             return newState
         default:
             return state

@@ -19,14 +19,14 @@ export default function Daycares(){
         }
     }, [selectorDaycares])
 
-    console.log(daycare);
+    // console.log(daycare);
 
     return (
         <main>
             {daycare.map(daycare => {
                 return (
-                    <div className='daycaresContainer'>
-                        <a key={daycare.id} href={`/api/daycares/${daycare.id}`}>
+                    <div key={daycare.id} className='daycaresContainer'>
+                        <a href={`/api/daycares/${daycare.id}`}>
                             <h2>{daycare.name}</h2>
                             <img src={daycare.image}></img>
                         </a>
