@@ -10,7 +10,7 @@ function DaycareFormModal() {
       <button onClick={() => setShowModal(true)}>+</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          <DaycareForm />
+          <DaycareForm trigger={showModal} setTrigger={setShowModal}/>
         </Modal>
       )}
     </>

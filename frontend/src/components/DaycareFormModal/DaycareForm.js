@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { thunkCreateDaycare } from "../../store/daycares";
 
-const CreateDaycareForm = () => {
+const CreateDaycareForm = ( {setTrigger} ) => {
     const dispatch = useDispatch();
     const sessionUser = useSelector((state) => state.session.user)
 
@@ -30,7 +30,6 @@ const CreateDaycareForm = () => {
 
         if (createdDaycare) {
             reset()
-            // history.push(`/api/daycares`);
         }
     }
 
@@ -41,6 +40,7 @@ const CreateDaycareForm = () => {
         setPhoneNumber('');
         setBusinessHours('');
         setImage('');
+        setTrigger(false);
     }
 
     return (
@@ -104,3 +104,5 @@ const CreateDaycareForm = () => {
 }
 
 export default CreateDaycareForm;
+
+//debugging

@@ -5,7 +5,6 @@ import SignupFormPage from "./components/SignupFormPage";
 import Daycares from "./components/Daycares";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
-import DaycareFormModal from "./components/DaycareFormModal";
 
 function App() {
   const dispatch = useDispatch();
@@ -22,7 +21,7 @@ function App() {
           <Route path="/signup">
             <SignupFormPage />
           </Route>
-          <Route exact path='/api/daycares'>
+          <Route exact path='/daycares'>
             <Daycares />
           </Route>
           <Route>
