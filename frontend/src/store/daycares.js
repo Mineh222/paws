@@ -31,7 +31,7 @@ export const thunkGetDaycares = () => async dispatch => {
 };
 
 export const thunkCreateDaycare = (daycare) => async dispatch => {
-    const response = await csrfFetch('/api/daycares', {
+    const response = await csrfFetch('/api/daycares/test', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(daycare)
