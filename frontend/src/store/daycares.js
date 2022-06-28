@@ -18,7 +18,7 @@ export const thunkGetDaycares = () => async dispatch => {
     if (response.ok) {
         const daycareData = await response.json();
         dispatch(actionGetDaycares(daycareData));
-        // return daycareData
+        return daycareData
     }
 };
 

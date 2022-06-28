@@ -5,13 +5,35 @@ import { thunkGetDaycares } from '../../store/daycares';
 export default function Daycares(){
     const dispatch = useDispatch();
 
+    const selectorDaycares = useSelector(state => state.allDaycares)
+
+    const [daycare, setDaycare] = useState([]);
+
     useEffect(() => {
         dispatch(thunkGetDaycares())
     }, [dispatch]);
 
+    useEffect(() => {
+        if(selectorDaycares) {
+            setDaycare(Object.values(selectorDaycares))
+        }
+    }, [selectorDaycares])
+
+    console.log(daycare);
+
     return (
         <main>
-            <h1>this works</h1>
+            {daycare.map(daycare => {
+                return (
+                    <div className='daycaresContainer'>
+                        <a key={daycare.id} href={`/api/daycares/${daycare.id}`}>
+                            <h2>{daycare.name}</h2>
+                            <img src={daycare.image}></img>
+                        </a>
+                            <p>{daycare.description}</p>
+                    </div>
+                )
+            })}
         </main>
     )
 }

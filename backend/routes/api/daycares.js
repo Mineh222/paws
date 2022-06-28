@@ -10,11 +10,11 @@ const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
 
 router.get('/', asyncHandler(async (req,res) => {
-    // const daycares = await Daycare.findAll({
-    //     // order: [['name']]
-    // })
-    const daycares = await Daycare.list();
+    const daycares = await Daycare.findAll({
+        // order: [['id', 'DESC']]
+    })
     return res.json(daycares)
 }));
+
 
 module.exports = router;
