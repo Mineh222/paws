@@ -12,6 +12,7 @@ module.exports = (sequelize, DataTypes) => {
   Daycare.associate = function(models) {
     // associations can be defined here
     Daycare.belongsTo(models.User, { foreignKey: 'ownerId' });
+    Daycare.hasMany(models.Review, {foreignKey: 'daycareId'});
   };
   return Daycare;
 };

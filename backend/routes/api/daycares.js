@@ -16,7 +16,7 @@ router.get('/', asyncHandler(async (req,res) => {
     return res.json(daycares)
 }));
 
-const validatePostDaycare = [
+const daycareValidations = [
     check('name')
       .exists({ checkFalsy: true })
       .withMessage('Please provide your business name.'),
@@ -41,7 +41,7 @@ const validatePostDaycare = [
     handleValidationErrors
 ];
 
-router.post('/', requireAuth, validatePostDaycare, asyncHandler(async (req, res) => {
+router.post('/', requireAuth, daycareValidations, asyncHandler(async (req, res) => {
     const {
         ownerId,
         name,
@@ -56,6 +56,30 @@ router.post('/', requireAuth, validatePostDaycare, asyncHandler(async (req, res)
 
     return res.json(daycare)
     // return res.redirect('/api/daycares')
+}))
+
+router.get('/:id', asyncHandler(async (req,res) => {
+    const daycareId = req.params.id
+    const daycare = await Daycare.findByPk(daycareId)
+    return res.json(daycare)
+}));
+
+router.put('/:id', daycareValidations, asyncHandler(async (req, res) => {
+    const daycareId = req.params.id
+    const daycare = await Daycare.findByPk(daycareId);
+
+    await daycare.update(req.body);
+
+    return res.json(daycare);
+}))
+
+router.delete("/:id", asyncHandler(async (req, res) => {
+    const daycareId = req.params.id
+    const daycare = await Daycare.findByPk(daycareId);
+
+    await daycare.destroy();
+
+    return res.json({ success: true });
 }))
 
 module.exports = router;
