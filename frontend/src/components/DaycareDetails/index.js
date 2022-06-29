@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react';
+import { useEffect } from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import { thunkGetDaycare } from '../../store/daycares';
 import EditDaycareFormModal from '../EditDaycareFormModal';
@@ -11,20 +11,11 @@ export default function DaycareDetails(){
     const sessionUser = useSelector((state) => state.session.user);
     const allDaycares = useSelector(state => state.allDaycares);
     const daycare = allDaycares[id];
-    // console.log(selectorDaycare);
     const ownerId = daycare.ownerId;
-
-    // const [daycare, setDaycare] = useState([]);
 
     useEffect(() => {
         dispatch(thunkGetDaycare(id))
-    }, [dispatch]);
-
-    // useEffect(() => {
-    //     if(selectorDaycare) {
-    //         setDaycare(Object.values(selectorDaycare))
-    //     }
-    // }, [selectorDaycare])
+    }, [dispatch, id]);
 
     return (
         <main>

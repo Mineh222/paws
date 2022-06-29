@@ -86,4 +86,13 @@ router.put('/:id', daycareValidations, asyncHandler(async (req, res) => {
     return res.json(daycare)
 }))
 
+router.delete("/:id", asyncHandler(async (req, res) => {
+    const daycareId = req.params.id
+    const daycare = await Daycare.findByPk(daycareId);
+
+    await daycare.destroy();
+
+    return res.json({ success: true });
+}))
+
 module.exports = router;
