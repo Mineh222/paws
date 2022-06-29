@@ -1,6 +1,6 @@
 import {useState, useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import { thunkGetDaycares } from '../../store/daycares';
+import { thunkGetDaycares, thunkDeleteDaycare } from '../../store/daycares';
 import DaycareFormModal from '../DaycareFormModal';
 import { Link } from 'react-router-dom';
 
@@ -30,11 +30,16 @@ export default function Daycares(){
             {daycare.map(daycare => {
                 return (
                     <div key={daycare.id} className='daycaresContainer'>
-                        <Link to={`/api/daycares/${daycare.id}`}>
+                        <Link to={`/daycares/${daycare.id}`}>
                             <h2>{daycare.name}</h2>
                             <img src={daycare.image}></img>
                         </Link>
                             <p>{daycare.description}</p>
+                            {sessionUser.id === daycare.ownerId && (
+                                <button onClick={() => dispatch(thunkDeleteDaycare(daycare.id))}>
+                                    Delete
+                                </button>
+                            )}
                     </div>
                 )
             })}

@@ -1,17 +1,22 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { thunkCreateDaycare } from "../../store/daycares";
+import { useParams } from "react-router-dom";
+import { thunkEditDaycare } from "../../store/daycares";
 
-const CreateDaycareForm = ( {setTrigger} ) => {
+const EditDaycareForm = ( {setTrigger} ) => {
     const dispatch = useDispatch();
-    const sessionUser = useSelector((state) => state.session.user)
+    const { id } = useParams();
 
-    const [name, setName] = useState('');
-    const [description, setDescription] = useState('');
-    const [address, setAdress] = useState('');
-    const [phoneNumber, setPhoneNumber] = useState('');
-    const [businessHours, setBusinessHours] = useState('');
-    const [image, setImage] = useState('');
+    const sessionUser = useSelector((state) => state.session.user)
+    const allDaycares = useSelector(state => state.allDaycares);
+    const daycare = allDaycares[id];
+
+    const [name, setName] = useState(`${daycare.name}`);
+    const [description, setDescription] = useState(`${daycare.description}`);
+    const [address, setAdress] = useState(`${daycare.address}`);
+    const [phoneNumber, setPhoneNumber] = useState(`${daycare.phoneNumber}`);
+    const [businessHours, setBusinessHours] = useState(`${daycare.businessHours}`);
+    const [image, setImage] = useState(`${daycare.image}`);
     const [validationErrors, setValidationErrors] = useState([]);
 
     useEffect(() => {
@@ -25,6 +30,7 @@ const CreateDaycareForm = ( {setTrigger} ) => {
         e.preventDefault();
 
         const payload = {
+            ...daycare,
             ownerId: sessionUser.id,
             name,
             description,
@@ -34,9 +40,9 @@ const CreateDaycareForm = ( {setTrigger} ) => {
             image
         };
 
-        const createdDaycare = await dispatch(thunkCreateDaycare(payload));
+        const editedDaycare = await dispatch(thunkEditDaycare(payload));
 
-        if (createdDaycare) {
+        if (editedDaycare) {
             reset()
         }
     }
@@ -54,7 +60,7 @@ const CreateDaycareForm = ( {setTrigger} ) => {
     return (
         <section className="form-container">
             <form className="create-daycare-form" onSubmit={handleSubmit}>
-                <h2>Set up your doggy day care business on Paws!</h2>
+                <h2>Make changes to your business:</h2>
                 {validationErrors.length > 0 && (
                     <div>
                         Please fix the following errors before submitting:
@@ -115,15 +121,10 @@ const CreateDaycareForm = ( {setTrigger} ) => {
                         value={image}
                         onChange={e => setImage(e.target.value)} />
                 </label>
-                <button
-                    type="submit"
-                >
-                    Post your daycare!</button>
+                <button type="submit">Update doggy daycare!</button>
             </form>
         </section>
     )
 }
 
-export default CreateDaycareForm;
-
-//debugging
+export default EditDaycareForm;
