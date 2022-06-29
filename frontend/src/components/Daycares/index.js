@@ -30,7 +30,7 @@ export default function Daycares(){
             {daycare.map(daycare => {
                 return (
                     <div key={daycare.id} className='daycaresContainer'>
-                        <Link to={`/api/daycares/${daycare.id}`}>
+                        <Link to={`/daycares/${daycare.id}`}>
                             <h2>{daycare.name}</h2>
                             <img src={daycare.image}></img>
                         </Link>

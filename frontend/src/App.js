@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { Route, Switch } from "react-router-dom";
 import SignupFormPage from "./components/SignupFormPage";
 import Daycares from "./components/Daycares";
+import DaycareDetails from "./components/DaycareDetails";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 
@@ -23,6 +24,9 @@ function App() {
           </Route>
           <Route exact path='/daycares'>
             <Daycares />
+          </Route>
+          <Route path='/daycares/:id'>
+            <DaycareDetails />
           </Route>
           <Route>
             Page not found.
