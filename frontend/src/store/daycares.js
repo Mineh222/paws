@@ -99,7 +99,7 @@ export const thunkDeleteDaycare = (id) => async dispatch => {
 
     if (response.ok) {
         const deletedDaycare = await response.json();
-        dispatch(actionDeleteDaycare(deletedDaycare));
+        dispatch(actionDeleteDaycare(id));
         return deletedDaycare
     }
 }
