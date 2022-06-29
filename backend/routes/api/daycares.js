@@ -67,23 +67,10 @@ router.get('/:id', asyncHandler(async (req,res) => {
 router.put('/:id', daycareValidations, asyncHandler(async (req, res) => {
     const daycareId = req.params.id
     const daycare = await Daycare.findByPk(daycareId);
-    const selector = {
-        where: {id: daycare.id}
-    }
 
-    const {
-        ownerId,
-        name,
-        description,
-        address,
-        phoneNumber,
-        businessHours,
-        image
-    } = req.body
+    await daycare.update(req.body);
 
-    await Daycare.update(req.body, selector);
-
-    return res.json(daycare)
+    return res.json(daycare);
 }))
 
 router.delete("/:id", asyncHandler(async (req, res) => {

@@ -35,11 +35,6 @@ export default function Daycares(){
                             <img src={daycare.image}></img>
                         </Link>
                             <p>{daycare.description}</p>
-                            {sessionUser.id === daycare.ownerId && (
-                                <button onClick={() => dispatch(thunkDeleteDaycare(daycare.id))}>
-                                    Delete
-                                </button>
-                            )}
                     </div>
                 )
             })}

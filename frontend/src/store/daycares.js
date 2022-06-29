@@ -114,9 +114,9 @@ const daycareReducer = (state = {}, action) => {
                 newState[daycare.id] = daycare
             })
             return newState
-        case CREATE_DAYCARE:
-            newState[action.daycare.id] = action.daycare
-            return newState
+            case CREATE_DAYCARE:
+                newState[action.daycare.id] = action.daycare
+                return newState
         case GET_DAYCARE:
             let doggyDaycareDetails = {}
             doggyDaycareDetails[action.daycare.id] = action.daycare
