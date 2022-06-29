@@ -7,7 +7,7 @@ function DaycareFormModal() {
 
   return (
     <>
-      <button onClick={() => setShowModal(true)}>+</button>
+      <button onClick={() => setShowModal(true)}>Update your doggy daycare!</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <EditDaycareForm trigger={showModal} setTrigger={setShowModal}/>
