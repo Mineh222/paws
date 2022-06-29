@@ -57,7 +57,7 @@ const CreateDaycareForm = ( {setTrigger} ) => {
                 <h2>Set up your doggy day care business on Paws!</h2>
                 {validationErrors.length > 0 && (
                     <div>
-                        Please fix following errors before submitting:
+                        Please fix the following errors before submitting:
                         <ul className="errors">
                           {validationErrors.map(error => (
                             <li key={error}>{error}</li>
@@ -115,7 +115,10 @@ const CreateDaycareForm = ( {setTrigger} ) => {
                         value={image}
                         onChange={e => setImage(e.target.value)} />
                 </label>
-                <button type="submit">Post your daycare!</button>
+                <button
+                    type="submit"
+                >
+                    Post your daycare!</button>
             </form>
         </section>
     )
