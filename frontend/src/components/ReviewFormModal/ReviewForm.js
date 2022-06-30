@@ -12,16 +12,22 @@ const CreateReviewForm = ({setTrigger}) => {
     const [review, setReview] = useState('');
     const [image, setImage] = useState('');
     const [validationErrors, setValidationErrors] = useState([]);
+    const [hasSubmitted, setHasSubmitted] = useState(false);
 
     useEffect(() => {
         const errors = [];
-        if (rating < 1 || review > 5) errors.push("Please rate us 1-5.");
+        const substring = '.jpg'
+        if (image.indexOf(substring) === -1) errors.push("Please provide a jpeg image for your review.")
+        if (review.length < 5) errors.push("Please let us know how we could improve your experience.")
 
         setValidationErrors(errors)
-    }, [rating])
+    }, [image, review])
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        setHasSubmitted(true);
+        if (validationErrors.length) return alert('Cannot submit, please fix form errors.')
 
         const payload = {
             userId: sessionUser.id,
@@ -51,7 +57,7 @@ const CreateReviewForm = ({setTrigger}) => {
         <section className="review-form-container">
             <form className="create-review-form" onSubmit={handleSubmit}>
                 <h2>Let us know what you think of our doggy day care!</h2>
-                {validationErrors.length > 0 && (
+                {hasSubmitted && validationErrors.length > 0 && (
                     <div>
                         Please fix the following errors before submitting:
                         <ul className="errors">
@@ -81,6 +87,7 @@ const CreateReviewForm = ({setTrigger}) => {
                 <label>
                     Write your thoughts here!
                     <textarea
+                        required
                         value={review}
                         onChange={e => setReview(e.target.value)}>
                     </textarea>
