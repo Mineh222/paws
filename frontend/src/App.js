@@ -7,6 +7,7 @@ import DaycareDetails from "./components/DaycareDetails";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import HomePage from "./components/HomePage";
+import UserProfile from "./components/UserProfile";
 
 function App() {
   const dispatch = useDispatch();
@@ -31,6 +32,9 @@ function App() {
           </Route>
           <Route path='/daycares/:id'>
             <DaycareDetails />
+          </Route>
+          <Route path="/profile/:id">
+            <UserProfile />
           </Route>
           <Route>
             Page not found.

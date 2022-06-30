@@ -20,7 +20,7 @@ export default function DaycareDetails(){
 
     const onDeleteDaycare = () => {
         dispatch(thunkDeleteDaycare(id))
-        history.push('/daycares')
+        history.push(`/profile/${sessionUser.id}`)
     }
 
     if (!daycare) return null
