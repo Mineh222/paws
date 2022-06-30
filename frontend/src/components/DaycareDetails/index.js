@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import { thunkGetDaycare, thunkDeleteDaycare } from '../../store/daycares';
 import EditDaycareFormModal from '../EditDaycareFormModal';
+import ReviewFormModal from '../ReviewFormModal';
 import Reviews from '../Reviews';
 import { useParams, useHistory } from 'react-router-dom';
 
@@ -33,6 +34,7 @@ export default function DaycareDetails(){
                 <p className="daycare-address">{daycare.address}</p>
                 <p className='daycare-phoneNumber'>{daycare.phoneNumber}</p>
                 <p className='daycare-businessHouse'>{daycare.businessHours}</p>
+                <Reviews />
             </div>
         )
     }
@@ -54,6 +56,9 @@ export default function DaycareDetails(){
                     </button>
                     <EditDaycareFormModal />
                 </>
+            )}
+            {sessionUser && (
+                <ReviewFormModal />
             )}
             <Reviews />
         </>

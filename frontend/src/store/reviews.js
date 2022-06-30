@@ -2,6 +2,7 @@ import { csrfFetch } from "./csrf";
 
 // types
 const GET_REVIEWS = 'daycares/daycareId/getReviews'
+const CREATE_REVIEW = 'daycares/daycareId/createReview'
 
 
 // action creators
@@ -9,6 +10,13 @@ const actionGetReviews = (reviews) => {
     return {
         type: GET_REVIEWS,
         reviews
+    }
+}
+
+const actionCreateReview = (review) => {
+    return {
+        type: CREATE_REVIEW,
+        review
     }
 }
 
@@ -23,6 +31,22 @@ export const thunkGetReviews = (id) => async dispatch => {
     }
 }
 
+export const thunkCreateReview = (daycareId, review) => async dispatch => {
+    const response = await csrfFetch(`/api/daycares/${daycareId}/reviews`, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(review),
+    });
+
+    if (response.ok) {
+        const newReview = await response.json();
+        dispatch(actionCreateReview(newReview));
+        return newReview
+    }
+
+}
+
+
 const reviewReducer = (state = {}, action) => {
 
     let newState = {...state}
@@ -32,6 +56,9 @@ const reviewReducer = (state = {}, action) => {
             action.reviews.forEach(review => {
                 newState[review.id] = review
             })
+            return newState
+        case CREATE_REVIEW:
+            newState[action.review.id] = action.review
             return newState
         default:
             return state

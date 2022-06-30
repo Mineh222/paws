@@ -97,7 +97,7 @@ router.get("/:id/reviews", asyncHandler(async (req, res) => {
 const reviewValidations = [
     check('rating')
         .exists({ checkFalsy: true })
-        .withMessage('Please provide a rating 1-10.'),
+        .withMessage('Please provide a rating 1-5.'),
     handleValidationErrors
 ]
 
