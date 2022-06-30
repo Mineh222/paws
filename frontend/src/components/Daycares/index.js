@@ -1,6 +1,6 @@
 import {useState, useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import { thunkGetDaycares, thunkDeleteDaycare } from '../../store/daycares';
+import { thunkGetDaycares } from '../../store/daycares';
 import DaycareFormModal from '../DaycareFormModal';
 import { Link } from 'react-router-dom';
 

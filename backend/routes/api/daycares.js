@@ -1,7 +1,7 @@
 const express = require('express');
 const asyncHandler = require('express-async-handler');
 
-const { Daycare, Review } = require('../../db/models');
+const { Daycare, Review, User } = require('../../db/models');
 
 const router = express.Router();
 
@@ -11,7 +11,10 @@ const { requireAuth } = require('../../utils/auth')
 
 router.get('/', asyncHandler(async (req,res) => {
     const daycares = await Daycare.findAll({
-        // order: [['id', 'DESC']]
+        order: [
+            ['id', 'DESC'],
+            ['name', 'ASC'],
+        ]
     })
     return res.json(daycares)
 }));
@@ -89,15 +92,19 @@ router.get("/:id/reviews", asyncHandler(async (req, res) => {
     const reviews = await Review.findAll({
         where: {
             daycareId,
-        }
+        },
+        include: [User]
     })
     return res.json(reviews);
 }))
 
 const reviewValidations = [
-    check('rating')
+    check('review')
         .exists({ checkFalsy: true })
-        .withMessage('Please provide a rating 1-5.'),
+        .withMessage('Please provide a description of your experience at our doggy daycare.'),
+    check('image')
+        .exists({ checkFalsy: true })
+        .withMessage('Please upload a jpeg image for your review.'),
     handleValidationErrors
 ]
 
@@ -112,7 +119,11 @@ router.post("/:id/reviews", requireAuth, reviewValidations, asyncHandler(async (
 
     const newReview = await Review.create(req.body);
 
-    return res.json(newReview)
+    const userReview = await Review.findByPk(newReview.id, {
+        include: [User]
+    })
+
+    return res.json(userReview)
 
 }));
 

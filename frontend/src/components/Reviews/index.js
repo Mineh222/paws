@@ -30,6 +30,7 @@ export default function Reviews() {
             {reviews.map(review => {
                 return (
                     <div key={review.id} className="reviews-list">
+                        <div className='review-user-name'>{review.User.username}</div>
                         <div className='review-rating'>{review.rating}</div>
                         <div className='review'>{review.review}</div>
                         <img src={review.image}></img>
