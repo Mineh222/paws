@@ -7,7 +7,7 @@ const CREATE_DAYCARE = 'daycares/createDaycare'
 const EDIT_DAYCARE = 'daycares/editDaycare'
 const DELETE_DAYCARE = 'daycares/deleteDaycare'
 
-// actions creators
+// action creators
 const actionGetDaycares = (daycares) => {
     return {
         type: GET_DAYCARES,

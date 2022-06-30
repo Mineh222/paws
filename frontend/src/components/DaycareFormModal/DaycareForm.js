@@ -125,5 +125,3 @@ const CreateDaycareForm = ( {setTrigger} ) => {
 }
 
 export default CreateDaycareForm;
-
-//debugging
