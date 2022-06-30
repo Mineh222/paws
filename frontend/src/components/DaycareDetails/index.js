@@ -18,7 +18,7 @@ export default function DaycareDetails(){
         dispatch(thunkGetDaycare(id))
     }, [dispatch, id]);
 
-    const onDelete = () => {
+    const onDeleteDaycare = () => {
         dispatch(thunkDeleteDaycare(id))
         history.push('/daycares')
     }
@@ -51,8 +51,8 @@ export default function DaycareDetails(){
              </div>
             {sessionUser.id === daycare.ownerId && (
                 <>
-                    <button onClick={onDelete}>
-                        Delete
+                    <button onClick={onDeleteDaycare}>
+                        Delete your daycare from Paws
                     </button>
                     <EditDaycareFormModal />
                 </>

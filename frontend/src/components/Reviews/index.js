@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import { thunkGetReviews } from '../../store/reviews';
+import { thunkGetReviews, thunkDeleteReview } from '../../store/reviews';
 import { useParams } from 'react-router-dom';
 
 export default function Reviews() {
@@ -33,6 +33,13 @@ export default function Reviews() {
                         <div className='review-rating'>{review.rating}</div>
                         <div className='review'>{review.review}</div>
                         <img src={review.image}></img>
+                        {sessionUser.id === review.userId && (
+                            <button className='delete-review'
+                                onClick={() => dispatch(thunkDeleteReview(review.id))}
+                            >
+                                Delete your review
+                            </button>
+                        )}
                     </div>
                 )
             })}

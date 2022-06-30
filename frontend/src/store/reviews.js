@@ -3,6 +3,7 @@ import { csrfFetch } from "./csrf";
 // types
 const GET_REVIEWS = 'daycares/daycareId/getReviews'
 const CREATE_REVIEW = 'daycares/daycareId/createReview'
+const DELETE_REVIEW = 'daycares/daycareId/deleteReview'
 
 
 // action creators
@@ -17,6 +18,13 @@ const actionCreateReview = (review) => {
     return {
         type: CREATE_REVIEW,
         review
+    }
+}
+
+const actionDeleteReview = (reviewId) => {
+    return {
+        type: DELETE_REVIEW,
+        reviewId
     }
 }
 
@@ -46,6 +54,17 @@ export const thunkCreateReview = (daycareId, review) => async dispatch => {
 
 }
 
+export const thunkDeleteReview = (id) => async dispatch => {
+    const response = await csrfFetch(`/api/reviews/${id}`, {
+        method: 'DELETE',
+    })
+
+    if(response.ok) {
+        const deletedReview = await response.json();
+        dispatch(actionDeleteReview(id));
+        return deletedReview
+    }
+}
 
 const reviewReducer = (state = {}, action) => {
 
@@ -59,6 +78,9 @@ const reviewReducer = (state = {}, action) => {
             return newState
         case CREATE_REVIEW:
             newState[action.review.id] = action.review
+            return newState
+        case DELETE_REVIEW:
+            delete newState[action.reviewId]
             return newState
         default:
             return state
