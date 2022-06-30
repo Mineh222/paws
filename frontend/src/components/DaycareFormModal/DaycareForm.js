@@ -23,7 +23,7 @@ const CreateDaycareForm = ( {setTrigger} ) => {
         if (name.length > 50) errors.push("Doggy Daycare name cannot exceed 50 characters.")
 
         setValidationErrors(errors)
-    }, [phoneNumber, image]);
+    }, [phoneNumber, image, name]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
