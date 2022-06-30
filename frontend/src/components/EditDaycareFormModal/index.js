@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Modal } from '../../context/Modal';
 import EditDaycareForm from './EditDaycareForm';
 
-function DaycareFormModal() {
+function EditDaycareFormModal() {
   const [showModal, setShowModal] = useState(false);
 
   return (
@@ -17,4 +17,4 @@ function DaycareFormModal() {
   );
 }
 
-export default DaycareFormModal;
+export default EditDaycareFormModal;
