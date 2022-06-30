@@ -20,7 +20,7 @@ const CreateDaycareForm = ( {setTrigger} ) => {
         const substring1 = '.jpg'
         const substring2 = '.png'
         if (phoneNumber.length !== 10) errors.push("Please enter a valid phone number.")
-        if (image.indexOf(substring1) === -1 || image.indexOf(substring2) === -2) errors.push("Please provide a jpeg or png formatted image for your business.")
+        if (image.indexOf(substring1) === -1 || image.indexOf(substring2) === -1) errors.push("Please provide a jpeg or png image for your business.")
         if (name.length > 50) errors.push("Doggy Daycare name cannot exceed 50 characters.")
 
         setValidationErrors(errors)

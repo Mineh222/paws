@@ -16,8 +16,9 @@ const CreateReviewForm = ({setTrigger}) => {
 
     useEffect(() => {
         const errors = [];
-        const substring = '.jpg'
-        if (image.indexOf(substring) === -1) errors.push("Please provide a jpeg image for your review.")
+        const substring1 = '.jpg'
+        const substring2 = '.png'
+        if (image.indexOf(substring1) === -1 || image.indexOf(substring2) === -1) errors.push("Please provide a jpeg or png image for your review.")
         if (review.length < 5) errors.push("Please let us know how we could improve your experience.")
 
         setValidationErrors(errors)
