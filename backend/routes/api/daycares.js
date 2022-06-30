@@ -119,7 +119,11 @@ router.post("/:id/reviews", requireAuth, reviewValidations, asyncHandler(async (
 
     const newReview = await Review.create(req.body);
 
-    return res.json(newReview)
+    const userReview = await Review.findByPk(newReview.id, {
+        include: [User]
+    })
+
+    return res.json(userReview)
 
 }));
 
