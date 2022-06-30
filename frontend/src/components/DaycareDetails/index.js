@@ -2,10 +2,12 @@ import { useEffect } from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import { thunkGetDaycare, thunkDeleteDaycare } from '../../store/daycares';
 import EditDaycareFormModal from '../EditDaycareFormModal';
-import { useParams } from 'react-router-dom';
+import Reviews from '../Reviews';
+import { useParams, useHistory } from 'react-router-dom';
 
 export default function DaycareDetails(){
     const dispatch = useDispatch();
+    const history = useHistory();
     const { id } = useParams();
 
     const sessionUser = useSelector((state) => state.session.user);
@@ -13,7 +15,12 @@ export default function DaycareDetails(){
 
     useEffect(() => {
         dispatch(thunkGetDaycare(id))
-    }, [dispatch]);
+    }, [dispatch, id]);
+
+    const onDelete = () => {
+        dispatch(thunkDeleteDaycare(id))
+        history.push('/daycares')
+    }
 
     if (!daycare) return null
 
@@ -42,12 +49,13 @@ export default function DaycareDetails(){
              </div>
             {sessionUser.id === daycare.ownerId && (
                 <>
-                    <button onClick={() => dispatch(thunkDeleteDaycare(id))}>
+                    <button onClick={onDelete}>
                         Delete
                     </button>
                     <EditDaycareFormModal />
                 </>
             )}
+            <Reviews />
         </>
     )
 }

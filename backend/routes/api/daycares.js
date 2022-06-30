@@ -1,7 +1,7 @@
 const express = require('express');
 const asyncHandler = require('express-async-handler');
 
-const { Daycare } = require('../../db/models');
+const { Daycare, Review } = require('../../db/models');
 
 const router = express.Router();
 
@@ -81,5 +81,40 @@ router.delete("/:id", asyncHandler(async (req, res) => {
 
     return res.json({ success: true });
 }))
+
+//=====Reviews======
+
+router.get("/:id/reviews", asyncHandler(async (req, res) => {
+    const daycareId = req.params.id
+    const reviews = await Review.findAll({
+        where: {
+            daycareId,
+        }
+    })
+    return res.json(reviews);
+}))
+
+const reviewValidations = [
+    check('rating')
+        .exists({ checkFalsy: true })
+        .withMessage('Please provide a rating 1-10.'),
+    handleValidationErrors
+]
+
+router.post("/:id/reviews", requireAuth, reviewValidations, asyncHandler(async (req, res) => {
+    const {
+        userId,
+        daycareId,
+        rating,
+        review,
+        image
+    } = req.body
+
+    const newReview = await Review.create(req.body);
+
+    return res.json(newReview)
+
+}));
+
 
 module.exports = router;
