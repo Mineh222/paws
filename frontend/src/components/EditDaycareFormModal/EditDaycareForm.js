@@ -18,16 +18,23 @@ const EditDaycareForm = ( {setTrigger} ) => {
     const [businessHours, setBusinessHours] = useState(`${daycare.businessHours}`);
     const [image, setImage] = useState(`${daycare.image}`);
     const [validationErrors, setValidationErrors] = useState([]);
+    const [hasSubmitted, setHasSubmitted] = useState(false);
 
     useEffect(() => {
         const errors = [];
-        if (phoneNumber.length !== 10) errors.push("Please enter a valid phone number")
+        const substring = '.jpg'
+        if (phoneNumber.length !== 10) errors.push("Please enter a valid phone number.")
+        if (image.indexOf(substring) === -1) errors.push("Please provide a jpeg image for your business.")
+        if (name.length > 50) errors.push("Doggy Daycare name cannot exceed 50 characters.")
 
         setValidationErrors(errors)
-    }, [phoneNumber]);
+    }, [phoneNumber, image, name]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        setHasSubmitted(true);
+        if (validationErrors.length) return alert('Cannot submit, please fix form errors.')
 
         const payload = {
             ...daycare,
@@ -61,7 +68,7 @@ const EditDaycareForm = ( {setTrigger} ) => {
         <section className="form-container">
             <form className="create-daycare-form" onSubmit={handleSubmit}>
                 <h2>Make changes to your business:</h2>
-                {validationErrors.length > 0 && (
+                {hasSubmitted && validationErrors.length > 0 && (
                     <div>
                         Please fix the following errors before submitting:
                         <ul className="errors">
