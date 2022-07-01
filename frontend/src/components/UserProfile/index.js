@@ -3,6 +3,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import { thunkGetDaycares } from '../../store/daycares';
 import DaycareFormModal from '../DaycareFormModal';
 import { useParams, Link } from 'react-router-dom';
+import './UserProfile.css';
 
 export default function UserProfile(){
     const dispatch = useDispatch();
@@ -28,14 +29,14 @@ export default function UserProfile(){
     if (!daycare) return null
 
     return (
-        <main>
+        <main className='user-profile-container'>
             <DaycareFormModal />
-            <h2>{sessionUser.username}</h2>
+            <h2 className='username-profile-page'>{sessionUser.username}</h2>
             <p>{sessionUser.email}</p>
                 {daycare.map(daycare => {
                     return (
                         <div key={daycare.id} className='daycaresContainer'>
-                            <Link to={`/daycares/${daycare.id}`}>
+                            <Link className="user-profile-link-to-daycare" to={`/daycares/${daycare.id}`}>
                                 <h2>{daycare.name}</h2>
                                 <img src={daycare.image}></img>
                             </Link>

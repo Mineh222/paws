@@ -1,0 +1,42 @@
+.add-daycare-button {
+    float: right;
+    max-width: 15%;
+    padding: 5px;
+    background-color: white;
+    border: solid red;
+    border-radius: 3px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 16px;
+}
+
+.daycaresContainer {
+    padding: 24px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    display: grid;
+    min-width: 90%;
+    text-decoration: none;
+    border-top: 2px solid #ebebeb;
+    overflow-x: hidden;
+    margin-top: 10px;
+}
+
+.daycaresContainer2 {
+    border: 2px solid #ebebeb;
+    padding: 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    text-decoration: none;
+    overflow-x: hidden;
+    max-width: 90%;
+}
+
+.link {
+    text-decoration: none;
+    color: black;
+}
+
+.daycare-img {
+    float: left;
+    height: 80%;
+    width: 50%
+}

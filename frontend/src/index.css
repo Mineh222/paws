@@ -1,1 +1,5 @@
 /* TODO Add site wide styles */
+
+div:not(.paws-logo, ) {
+    overflow-x: hidden;
+}

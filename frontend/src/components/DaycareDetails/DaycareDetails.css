@@ -1,0 +1,55 @@
+.daycare-container {
+    padding: 24px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    display: grid;
+    min-width: 90%;
+    text-decoration: none;
+    border-top: 2px solid #ebebeb;
+    overflow-x: hidden;
+    margin-top: 10px;
+}
+
+.delete-daycare-button {
+    padding-left: 48px;
+    padding-right: 48px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top: 10px;
+    margin-left: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 16px;
+    background-color: red;
+    border-radius: 2px;
+    border: solid red;
+    color: white;
+}
+
+.update-daycare-modal-button {
+    padding-left: 48px;
+    padding-right: 48px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top: 10px;
+    margin-left: 10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 16px;
+    background-color: red;
+    border-radius: 2px;
+    border: solid red;
+    color: white;
+}
+
+.leave-review-modal-button {
+    padding-left: 48px;
+    padding-right: 48px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top: 10px;
+    margin-left: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 16px;
+    background-color: red;
+    border-radius: 2px;
+    border: solid red;
+    color: white;
+}
