@@ -25,6 +25,8 @@ export default function Daycares(){
 
     return (
         <main className='daycaresContainer'>
+            <h1 className='heading'>Best Doggy Daycares in Los Angeles, CA</h1>
+            <h3 className='small-heading'>All Results</h3>
             {sessionUser &&
                 <DaycareFormModal />
             }

@@ -1,5 +1,6 @@
 .add-daycare-button {
     float: right;
+    max-width: 15%;
     padding: 5px;
     background-color: white;
     border: solid red;
@@ -10,12 +11,14 @@
 
 .daycaresContainer {
     padding: 24px;
-    margin: 0px;
-    border: 0px;
+    /* margin: 0px; */
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     display: grid;
-    min-width: 100%;
+    min-width: 90%;
     text-decoration: none;
+    border-top: 2px solid #ebebeb;
+    overflow-x: hidden;
+    margin-top: 10px;
 }
 
 .daycaresContainer2 {
@@ -24,6 +27,8 @@
     margin-bottom: 10px;
     margin-top: 10px;
     text-decoration: none;
+    overflow-x: hidden;
+    max-width: 90%;
 }
 
 .link {
