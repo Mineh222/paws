@@ -27,7 +27,8 @@ function Navigation({ isLoaded }){
 
   return (
     <ul>
-        <NavLink className='home-link' exact to="/">Home</NavLink>
+        <NavLink className='home-link' exact to="/">Paws</NavLink>
+        <img className='paws-logo' src="https://i.postimg.cc/rp5WTVPC/logo.png"></img>
         {isLoaded && sessionLinks}
         <NavLink className='daycares-link' exact to="/daycares">Doggy Day Cares</NavLink>
     </ul>
