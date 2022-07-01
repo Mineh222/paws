@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { thunkCreateDaycare } from "../../store/daycares";
+import './DaycareForm.css';
 
 const CreateDaycareForm = ( {setTrigger} ) => {
     const dispatch = useDispatch();
@@ -60,7 +61,7 @@ const CreateDaycareForm = ( {setTrigger} ) => {
     }
 
     return (
-        <section className="form-container">
+        <section className="daycare-form-container">
             <form className="create-daycare-form" onSubmit={handleSubmit}>
                 <h2>Set up your doggy day care business on Paws!</h2>
                 {hasSubmitted && validationErrors.length > 0 && (
