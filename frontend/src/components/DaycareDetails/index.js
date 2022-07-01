@@ -60,7 +60,7 @@ export default function DaycareDetails(){
             )}
             {sessionUser && (
                 <ReviewFormModal />
-            )}
+                )}
             <Reviews />
         </>
     )
