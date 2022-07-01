@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import { thunkGetReviews, thunkDeleteReview } from '../../store/reviews';
 import { useParams } from 'react-router-dom';
+import './Reviews.css';
 
 export default function Reviews() {
     const dispatch = useDispatch();
@@ -30,12 +31,12 @@ export default function Reviews() {
             {reviews.map(review => {
                 return (
                     <div key={review.id} className="reviews-list">
-                        <div className='review-user-name'>{review.User.username}</div>
-                        <div className='review-rating'>{review.rating}</div>
-                        <div className='review'>{review.review}</div>
-                        <img src={review.image}></img>
+                        <div className='review-user-name'>User: {review.User.username}</div>
+                        <div className='review-rating'>Rating: {review.rating}</div>
+                        <div className='review'>Review: {review.review}</div>
+                        <img className='review-image' src={review.image}></img>
                         {sessionUser?.id === review.userId && (
-                            <button className='delete-review'
+                            <button className='delete-review-button'
                                 onClick={() => dispatch(thunkDeleteReview(review.id))}
                             >
                                 Delete your review

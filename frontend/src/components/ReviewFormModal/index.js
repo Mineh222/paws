@@ -7,7 +7,7 @@ function ReviewFormModal() {
 
   return (
     <>
-      <button onClick={() => setShowModal(true)}>Leave a review!</button>
+      <button className="leave-review-modal-button" onClick={() => setShowModal(true)}>Leave a review!</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <ReviewForm trigger={showModal} setTrigger={setShowModal}/>

@@ -1,15 +1,19 @@
-.add-daycare-button {
-    float: right;
-    max-width: 15%;
-    padding: 5px;
-    background-color: white;
-    border: solid red;
-    border-radius: 3px;
+.delete-review-button {
+    padding-left: 48px;
+    padding-right: 48px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top: 10px;
+    margin-left: 20px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 16px;
+    background-color: red;
+    border-radius: 2px;
+    border: solid red;
+    color: white;
 }
 
-.daycaresContainer {
+.reviews-container {
     padding: 24px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     display: grid;
@@ -20,7 +24,7 @@
     margin-top: 10px;
 }
 
-.daycaresContainer2 {
+.reviews-list {
     border: 2px solid #ebebeb;
     padding: 10px;
     margin-bottom: 10px;
@@ -30,13 +34,9 @@
     max-width: 90%;
 }
 
-.link {
-    text-decoration: none;
-    color: black;
-}
-
-.daycare-img {
+.review-image {
     float: left;
-    height: 80%;
-    width: 50%
+    height: 200px;
+    width: 300px;
+    margin-top: 10px;
 }

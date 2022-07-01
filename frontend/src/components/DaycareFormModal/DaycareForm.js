@@ -126,6 +126,7 @@ const CreateDaycareForm = ( {setTrigger} ) => {
                         onChange={e => setImage(e.target.value)} />
                 </label>
                 <button
+                    className="create-daycare-button"
                     type="submit"
                 >
                     Post your daycare!</button>

@@ -1,4 +1,4 @@
-.daycare-form-container {
+.review-form-container {
     height: 400px;
     width: 350px;
     margin: auto;
@@ -8,8 +8,7 @@
     font-weight: bold;
 }
 
-
-.create-daycare-form {
+.create-review-form {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -17,7 +16,7 @@
     justify-items: center;
 }
 
-.create-daycare-button {
+.post-review-button {
     padding-left: 48px;
     padding-right: 48px;
     padding-top: 5px;
