@@ -18,11 +18,12 @@ const CreateDaycareForm = ( {setTrigger} ) => {
 
     useEffect(() => {
         const errors = [];
-        const substring1 = '.jpg'
-        const substring2 = '.png'
+        let testRegex = /^https?:\/\/(?:[a-z0-9\-]+\.)+[a-z]{2,6}(?:\/[^\/#?]+)+\.(?:jpe?g|png)$/;
+        let imageReg = image;
+        if (!testRegex.test(imageReg)) {
+        errors.push('Please provide a valid jpg or png image url')}
         if (phoneNumber.length !== 10) errors.push("Please enter a valid phone number.")
-        if (image.indexOf(substring1) === -1 || image.indexOf(substring2) === -1) errors.push("Please provide a jpeg or png image for your business.")
-        if (name.length > 50) errors.push("Doggy Daycare name cannot exceed 50 characters.")
+        if (name.length > 50) errors.push("Your Doggy Daycare name cannot exceed 50 characters.")
 
         setValidationErrors(errors)
     }, [phoneNumber, image, name]);
