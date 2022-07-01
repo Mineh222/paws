@@ -3,6 +3,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import { thunkGetDaycares } from '../../store/daycares';
 import DaycareFormModal from '../DaycareFormModal';
 import { Link } from 'react-router-dom';
+import './Daycares.css'
 
 export default function Daycares(){
     const dispatch = useDispatch();
@@ -23,18 +24,18 @@ export default function Daycares(){
     }, [selectorDaycares])
 
     return (
-        <main>
+        <main className='daycaresContainer'>
             {sessionUser &&
                 <DaycareFormModal />
             }
             {daycare.map(daycare => {
                 return (
-                    <div key={daycare.id} className='daycaresContainer'>
-                        <Link to={`/daycares/${daycare.id}`}>
-                            <h2>{daycare.name}</h2>
-                            <img src={daycare.image}></img>
+                    <div key={daycare.id} className='daycaresContainer2'>
+                        <Link className="link" to={`/daycares/${daycare.id}`}>
+                            <h2 className='daycare-name'>{daycare.name}</h2>
+                            <img className='daycare-img'src={daycare.image}></img>
                         </Link>
-                            <p>{daycare.description}</p>
+                            <div className='daycare-description'>About us: {daycare.description}</div>
                     </div>
                 )
             })}
