@@ -19,7 +19,7 @@ const CreateReviewForm = ({setTrigger}) => {
         const substring1 = '.jpg'
         const substring2 = '.png'
         if (image.indexOf(substring1) === -1 || image.indexOf(substring2) === -1) errors.push("Please provide a jpeg or png image for your review.")
-        if (review.length < 5) errors.push("Please let us know how we could improve your experience.")
+        if (review.length < 5) errors.push("Your review must be a minimum of 5 characters.")
 
         setValidationErrors(errors)
     }, [image, review])
