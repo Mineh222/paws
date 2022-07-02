@@ -5,6 +5,7 @@ import EditDaycareFormModal from '../EditDaycareFormModal';
 import ReviewFormModal from '../ReviewFormModal';
 import Reviews from '../Reviews';
 import { useParams, useHistory } from 'react-router-dom';
+import './DaycareDetails.css';
 
 export default function DaycareDetails(){
     const dispatch = useDispatch();
@@ -51,7 +52,7 @@ export default function DaycareDetails(){
              </div>
             {sessionUser.id === daycare.ownerId && (
                 <>
-                    <button onClick={onDeleteDaycare}>
+                    <button className="delete-daycare-button" onClick={onDeleteDaycare}>
                         Delete your daycare from Paws
                     </button>
                     <EditDaycareFormModal />
@@ -59,7 +60,7 @@ export default function DaycareDetails(){
             )}
             {sessionUser && (
                 <ReviewFormModal />
-            )}
+                )}
             <Reviews />
         </>
     )

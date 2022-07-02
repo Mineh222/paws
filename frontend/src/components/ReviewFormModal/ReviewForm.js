@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { thunkCreateReview } from "../../store/reviews";
+import './ReviewForm.css';
 
 const CreateReviewForm = ({setTrigger}) => {
     const dispatch = useDispatch();
@@ -16,9 +17,10 @@ const CreateReviewForm = ({setTrigger}) => {
 
     useEffect(() => {
         const errors = [];
-        const substring1 = '.jpg'
-        const substring2 = '.png'
-        if (image.indexOf(substring1) === -1 || image.indexOf(substring2) === -1) errors.push("Please provide a jpeg or png image for your review.")
+        let testRegex = /^https?:\/\/(?:[a-z0-9\-]+\.)+[a-z]{2,6}(?:\/[^\/#?]+)+\.(?:jpe?g|png)$/;
+        let imageReg = image;
+        if (!testRegex.test(imageReg)) {
+        errors.push('Please provide a valid jpg or png image url')}
         if (review.length < 5) errors.push("Your review must be a minimum of 5 characters.")
 
         setValidationErrors(errors)
@@ -102,6 +104,7 @@ const CreateReviewForm = ({setTrigger}) => {
                         onChange={e => setImage(e.target.value)} />
                 </label>
                 <button
+                    className="post-review-button"
                     type="submit"
                 >
                     Post your review!

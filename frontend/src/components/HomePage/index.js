@@ -1,7 +1,10 @@
-import { NavLink } from "react-router-dom";
+import './HomePage.css';
 
 export default function HomePage() {
     return (
-        <h1>Paws</h1>
+        <div className='home-page'>
+            <h1 className="paws-title">Welcome to Paws</h1>
+            <img className="home-image-1" src="https://i.postimg.cc/nLWzsFng/cinny.jpg"></img>
+        </div>
     )
 }

@@ -11,26 +11,29 @@ function Navigation({ isLoaded }){
   let sessionLinks;
   if (sessionUser) {
     sessionLinks = (
-      <>
-        <ProfileButton className='profile-button' user={sessionUser} />
+      <div className="loggedin-user">
+        <ProfileButton user={sessionUser} />
         <NavLink className='profile-link' to={`/profile/${sessionUser.id}`}>My Profile</NavLink>
-      </>
+      </div>
       );
   } else {
     sessionLinks = (
-      <>
-        <LoginFormModal />
+      <div className='signup'>
         <NavLink className='signup-link' to="/signup">Sign Up</NavLink>
-      </>
+        <LoginFormModal />
+      </div>
     );
   }
 
   return (
-    <ul>
-        <NavLink className='home-link' exact to="/">Home</NavLink>
-        {isLoaded && sessionLinks}
-        <NavLink className='daycares-link' exact to="/daycares">Doggy Day Cares</NavLink>
-    </ul>
+    <div className='logo-container'>
+      <ul>
+          <NavLink className='home-link' exact to="/">Paws</NavLink>
+          <img className='paws-logo' src="https://i.postimg.cc/rp5WTVPC/logo.png"></img>
+          {isLoaded && sessionLinks}
+          <NavLink className='daycares-link' exact to="/daycares">Doggy Daycares</NavLink>
+      </ul>
+    </div>
   );
 }
 
