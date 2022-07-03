@@ -14,3 +14,13 @@ input {
     padding: 4px;
     padding-right: 30px;
 }
+
+textarea {
+    border-radius: 4px;
+    border: 1px solid #afabab;
+    padding: 4px;
+    padding-right: 30px;
+    resize: none;
+    height: 50px;
+    width: 200px;
+}

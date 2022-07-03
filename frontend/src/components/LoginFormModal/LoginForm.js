@@ -35,7 +35,7 @@ function LoginForm( {setTrigger} ) {
       <form className="login-form" onSubmit={handleSubmit}>
         <ul>
           {errors.map((error, idx) => (
-            <li key={idx}>{error}</li>
+            <li className="errors-login" key={idx}>{error}</li>
           ))}
         </ul>
         <label>

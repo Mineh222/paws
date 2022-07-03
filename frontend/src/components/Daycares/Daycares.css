@@ -3,10 +3,15 @@
     max-width: 15%;
     padding: 5px;
     background-color: white;
-    border: solid red;
+    border: 1px solid rgba(200,201,202,1);
     border-radius: 3px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 16px;
+    transition: background-color .7s
+}
+
+.add-daycare-button:hover {
+    background-color: lightgrey;
 }
 
 .daycaresContainer {
@@ -17,7 +22,8 @@
     text-decoration: none;
     border-top: 2px solid #ebebeb;
     overflow-x: hidden;
-    margin-top: 10px;
+    margin-top: 60px;
+    position: absolute;
 }
 
 .daycaresContainer2 {
@@ -27,7 +33,13 @@
     margin-top: 10px;
     text-decoration: none;
     overflow-x: hidden;
-    max-width: 90%;
+    max-width: 99%;
+    border-radius: 4px;
+    transition: box-shadow .3s
+}
+
+.daycaresContainer2:hover {
+    box-shadow: 0px 0px 5px rgba(0,0,0,.3);
 }
 
 .link {
@@ -38,5 +50,15 @@
 .daycare-img {
     float: left;
     height: 80%;
-    width: 50%
+    width: 50%;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+.daycare-description {
+    padding-bottom: 20px;
+}
+
+.daycare-business-hours, .daycare-phone-number, .daycare-address {
+    padding: 5px;
 }
