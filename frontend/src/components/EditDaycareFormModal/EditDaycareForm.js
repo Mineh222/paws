@@ -73,9 +73,9 @@ const EditDaycareForm = ( {setTrigger} ) => {
     return (
         <section className="edit-daycare-form-container">
             <form className="edit-daycare-form" onSubmit={handleSubmit}>
-                <h2>Make changes to your business:</h2>
+                <h2 className="edit-daycare-form-heading">Make changes to your business:</h2>
                 {hasSubmitted && validationErrors.length > 0 && (
-                    <div>
+                    <div className="edit-errors">
                         Please fix the following errors before submitting:
                         <ul className="errors">
                           {validationErrors.map(error => (
@@ -84,57 +84,64 @@ const EditDaycareForm = ( {setTrigger} ) => {
                         </ul>
                      </div>
                 )}
+                <div className="edit-form-container2">
                 <label>
                     Name
+                </label>
                     <input
+                        className="edit-name-input"
                         type="text"
                         required
                         value={name}
                         onChange={e => setName(e.target.value)} />
-                </label>
                 <label>
                     Description
+                </label>
                     <textarea
                         required
                         value={description}
                         onChange={e => setDescription(e.target.value)}>
                     </textarea>
-                </label>
                 <label>
                     Address
+                </label>
                     <input
+                        className="edit-address-input"
                         type="text"
                         required
                         value={address}
                         onChange={e => setAdress(e.target.value)} />
-                </label>
                 <label>
                     Phone Number
+                </label>
                     <input
+                        className="edit-phone-input"
                         type="text"
-                        placeholder="xxxxxxxxxx"
+                        placeholder="8181234567"
                         required
                         value={phoneNumber}
                         onChange={e => setPhoneNumber(e.target.value)} />
-                </label>
                 <label>
                     Business Hours
+                </label>
                     <input
+                        className="edit-business-hours-input"
                         type="text"
                         placeholder="Monday-Friday 8AM-5PM"
                         required
                         value={businessHours}
                         onChange={e => setBusinessHours(e.target.value)} />
-                </label>
                 <label>
                     Image URL
+                </label>
                     <input
+                         className="edit-image-input"
                         type="text"
                         required
                         value={image}
                         onChange={e => setImage(e.target.value)} />
-                </label>
                 <button className="edit-daycare-button" type="submit">Update doggy daycare!</button>
+                </div>
             </form>
         </section>
     )
