@@ -21,7 +21,7 @@ const CreateReviewForm = ({setTrigger}) => {
         let imageReg = image;
         if (!testRegex.test(imageReg)) {
         errors.push('Please provide a valid jpg or png image url')}
-        if (review.length < 5) errors.push("Please let us know how we could improve your experience.")
+        if (review.length < 5) errors.push("Your review must be a minimum of 5 characters.")
 
         setValidationErrors(errors)
     }, [image, review])
