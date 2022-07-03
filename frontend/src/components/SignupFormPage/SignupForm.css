@@ -2,6 +2,9 @@
     height: 300px;
     width: 250px;
     margin: auto;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
 }
 
 .signup-form {

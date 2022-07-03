@@ -17,7 +17,7 @@ const CreateReviewForm = ({setTrigger}) => {
 
     useEffect(() => {
         const errors = [];
-        let testRegex = /^https?:\/\/(?:[a-z0-9\-]+\.)+[a-z]{2,6}(?:\/[^\/#?]+)+\.(?:jpe?g|png)$/;
+        let testRegex = /^https?:\/\/(?:[a-z0-9-]+\.)+[a-z]{2,6}(?:\/[^/#?]+)+\.(?:jpe?g|png)$/;
         let imageReg = image;
         if (!testRegex.test(imageReg)) {
         errors.push('Please provide a valid jpg or png image url')}
@@ -78,12 +78,12 @@ const CreateReviewForm = ({setTrigger}) => {
                         onChange={e => setRating(e.target.value)}
                     >
                         {NUMBERS.map(number => (
-                            <option
-                                key={number}
-                                value={number}
-                            >
-                                {number}
-                            </option>
+                                <option
+                                    key={number}
+                                    value={number}
+                                >
+                                    {number}
+                                </option>
                         ))}
                     </select>
                 </label>

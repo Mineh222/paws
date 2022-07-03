@@ -18,7 +18,7 @@ const CreateDaycareForm = ( {setTrigger} ) => {
 
     useEffect(() => {
         const errors = [];
-        let testRegex = /^https?:\/\/(?:[a-z0-9\-]+\.)+[a-z]{2,6}(?:\/[^\/#?]+)+\.(?:jpe?g|png)$/;
+        let testRegex = /^https?:\/\/(?:[a-z0-9-]+\.)+[a-z]{2,6}(?:\/[^/#?]+)+\.(?:jpe?g|png)$/;
         let imageReg = image;
         let testRegexTwo = /^\d{10}$/;
         let phoneNumberReg = phoneNumber;
