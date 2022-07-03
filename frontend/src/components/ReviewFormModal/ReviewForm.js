@@ -59,10 +59,10 @@ const CreateReviewForm = ({setTrigger}) => {
     return (
         <section className="review-form-container">
             <form className="create-review-form" onSubmit={handleSubmit}>
-                <h2>Let us know what you think of our doggy day care!</h2>
+                <h2 className="review-form-header">Let us know what you think of our doggy day care!</h2>
                 {hasSubmitted && validationErrors.length > 0 && (
-                    <div>
-                        Please fix the following errors before submitting:
+                    <div className="review-errors">
+                        <div className="pls-fix-review-errors">Please fix the following errors before submitting:</div>
                         <ul className="errors">
                           {validationErrors.map(error => (
                             <li key={error}>{error}</li>
@@ -70,9 +70,10 @@ const CreateReviewForm = ({setTrigger}) => {
                         </ul>
                     </div>
                 )}
-                <label>
+                <label className="select-label">
                     Select a rating
                     <select
+                        className="select-rating"
                         required
                         value={rating}
                         onChange={e => setRating(e.target.value)}
@@ -87,22 +88,23 @@ const CreateReviewForm = ({setTrigger}) => {
                         ))}
                     </select>
                 </label>
-                <label>
+                <label className="review-label">
                     Write your thoughts here!
+                </label>
                     <textarea
                         required
                         value={review}
                         onChange={e => setReview(e.target.value)}>
                     </textarea>
-                </label>
-                <label>
+                <label className="image-label">
                     Upload an image URL
+                </label>
                     <input
+                        className="review-input"
                         type="text"
                         required
                         value={image}
                         onChange={e => setImage(e.target.value)} />
-                </label>
                 <button
                     className="post-review-button"
                     type="submit"
