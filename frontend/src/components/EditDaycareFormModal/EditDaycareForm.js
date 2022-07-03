@@ -25,13 +25,16 @@ const EditDaycareForm = ( {setTrigger} ) => {
         const errors = [];
         let testRegex = /^https?:\/\/(?:[a-z0-9\-]+\.)+[a-z]{2,6}(?:\/[^\/#?]+)+\.(?:jpe?g|png)$/;
         let imageReg = image;
+        let testRegexTwo = /^\d{10}$/;
+        let phoneNumberReg = phoneNumber;
+        if (!testRegexTwo.test(phoneNumberReg)) errors.push("Please enter a valid 10 digit phone number")
         if (!testRegex.test(imageReg)) {
         errors.push('Please provide a valid jpg or png image url')}
-        if (phoneNumber.length !== 10) errors.push("Please enter a valid phone number.")
         if (name.length > 50) errors.push("Your Doggy Daycare name cannot exceed 50 characters.")
+        if (description.length < 10) errors.push("Your description must be a minimum of 10 characters.")
 
         setValidationErrors(errors)
-    }, [phoneNumber, image, name]);
+    }, [phoneNumber, image, name, description]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
