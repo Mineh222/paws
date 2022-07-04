@@ -3,7 +3,6 @@ import {useDispatch, useSelector} from 'react-redux';
 import { thunkGetDaycares } from '../../store/daycares';
 import DaycareFormModal from '../DaycareFormModal';
 import { Link } from 'react-router-dom';
-// import { thunkGetAllReviews } from '../../store/reviews';
 import './UserProfile.css';
 
 export default function UserProfile(){
@@ -11,18 +10,12 @@ export default function UserProfile(){
 
     const sessionUser = useSelector((state) => state.session.user);
     const selectorDaycares = useSelector(state => state.allDaycares)
-    // const selectorReviews = useSelector(state => state.reviews);
 
     const [daycare, setDaycare] = useState([]);
-    // const [reviews, setReviews] = useState([]);
 
     useEffect(() => {
         dispatch(thunkGetDaycares())
     }, [dispatch]);
-
-    // useEffect(() => {
-    //     dispatch(thunkGetAllReviews(sessionUser.id))
-    // }, [dispatch, sessionUser.id])
 
     useEffect(() => {
         if(selectorDaycares) {
@@ -31,14 +24,6 @@ export default function UserProfile(){
             }))
         }
     }, [selectorDaycares])
-
-    // useEffect(() => {
-    //     if(selectorReviews) {
-    //         setReviews(Object.values(selectorReviews).filter((review) => {
-    //             return +review.userId === +sessionUser.id
-    //         }))
-    //     }
-    // }, [selectorReviews])
 
     if (!daycare) return null
 
@@ -67,28 +52,6 @@ export default function UserProfile(){
                     )
                 })}
                 </div>
-                {/* <h2 className='user-page-header-reviews'>My Reviews:</h2>
-                <div className="all-reviews-user=page">
-                    {reviews.map(review => {
-                        return (
-                            <div key={review.id} className="reviews-container-user-page">
-                                {daycare.map((daycare) => {
-                                    if (daycare.id === review.daycareId) {
-                                        return (
-                                            <div>
-                                                <h3 className="review-daycare-name">{daycare.name}</h3>
-                                                <Link className='user-profile-link-review' to={`/daycares/${review.daycareId}`}>Visit {daycare.name}</Link>
-                                            </div>
-                                        )
-                                    }
-                                })}
-                                <p className="user-review-rating">My Rating: {review.rating}/5</p>
-                                <p className='user-review'>{review.review}</p>
-                                <img className='user-review-image'src={review.image}></img>
-                            </div>
-                        )
-                    })}
-                </div> */}
         </main>
     )
 }
