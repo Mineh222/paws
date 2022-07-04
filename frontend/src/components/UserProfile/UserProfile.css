@@ -69,3 +69,13 @@
     margin-left: 63.5%;
     margin-top: 3.5%;
 }
+
+@media only screen and (min-width: 1280px) {
+    .message-image {
+        margin-top: -4%;
+        width: 18%;
+    }
+    .message-text {
+        margin-left: 65%;
+    }
+  }
