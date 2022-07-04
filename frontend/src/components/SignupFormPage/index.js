@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import * as sessionActions from "../../store/session";
 import './SignupForm.css';
+import Footer from "../Footer";
 
 function SignupFormPage() {
   const dispatch = useDispatch();
@@ -29,6 +30,7 @@ function SignupFormPage() {
   };
 
   return (
+    <>
     <div className="signup-form-container">
       <form className="signup-form" onSubmit={handleSubmit}>
         <ul>
@@ -70,6 +72,8 @@ function SignupFormPage() {
       </form>
       <img className="sign-up-pic" src="https://i.postimg.cc/nLWzsFng/cinny.jpg"></img>
     </div>
+    {/* <Footer /> */}
+    </>
   );
 }
 

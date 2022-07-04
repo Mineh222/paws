@@ -1,0 +1,11 @@
+
+.footer-container {
+    width: auto;
+    height: 50%;
+    background-color: #d6d0c4;
+}
+
+.footer-top {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
