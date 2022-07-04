@@ -18,7 +18,7 @@ const CreateDaycareForm = ( {setTrigger} ) => {
 
     useEffect(() => {
         const errors = [];
-        let testRegex = /^https?:\/\/(?:[a-z0-9\-]+\.)+[a-z]{2,6}(?:\/[^\/#?]+)+\.(?:jpe?g|png)$/;
+        let testRegex = /^https?:\/\/(?:[a-z0-9-]+\.)+[a-z]{2,6}(?:\/[^/#?]+)+\.(?:jpe?g|png)$/;
         let imageReg = image;
         let testRegexTwo = /^\d{10}$/;
         let phoneNumberReg = phoneNumber;
@@ -67,72 +67,79 @@ const CreateDaycareForm = ( {setTrigger} ) => {
     return (
         <section className="daycare-form-container">
             <form className="create-daycare-form" onSubmit={handleSubmit}>
-                <h2>Set up your doggy day care business on Paws!</h2>
+                <h2 className="daycare-form-heading">Set up your doggy day care business on Paws!</h2>
                 {hasSubmitted && validationErrors.length > 0 && (
-                    <div>
+                    <div className="please-fix-errors">
                         Please fix the following errors before submitting:
                         <ul className="errors">
                           {validationErrors.map(error => (
-                            <li key={error}>{error}</li>
+                            <li className="errors-create-daycare" key={error}>{error}</li>
                           ))}
                         </ul>
                      </div>
                 )}
+                <div className="form-container2">
                 <label>
                     Name
+                </label>
                     <input
+                        className="daycare-name-input"
                         type="text"
                         required
                         value={name}
                         onChange={e => setName(e.target.value)} />
-                </label>
                 <label>
                     Description
+                </label>
                     <textarea
                         required
                         value={description}
                         onChange={e => setDescription(e.target.value)}>
                     </textarea>
-                </label>
                 <label>
                     Address
+                </label>
                     <input
+                        className="daycare-address-input"
                         type="text"
                         required
                         value={address}
                         onChange={e => setAdress(e.target.value)} />
-                </label>
                 <label>
                     Phone Number
+                </label>
                     <input
+                        className="daycare-phone-input"
                         type="text"
-                        placeholder="xxxxxxxxxx"
+                        placeholder="8181234567"
                         required
                         value={phoneNumber}
                         onChange={e => setPhoneNumber(e.target.value)} />
-                </label>
                 <label>
                     Business Hours
+                </label>
                     <input
+                        className="daycare-business-hours-input"
                         type="text"
                         placeholder="Monday-Friday 8AM-5PM"
                         required
                         value={businessHours}
                         onChange={e => setBusinessHours(e.target.value)} />
-                </label>
                 <label>
                     Image URL
+                </label>
                     <input
+                        className="daycare-image-input"
                         type="text"
                         required
                         value={image}
                         onChange={e => setImage(e.target.value)} />
-                </label>
                 <button
                     className="create-daycare-button"
                     type="submit"
                 >
                     Post your daycare!</button>
+                </div>
             </form>
         </section>
     )

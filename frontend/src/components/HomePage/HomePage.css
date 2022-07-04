@@ -1,10 +1,45 @@
-.paws-title {
-    position:absolute;
-    margin-top: 50px;
-    margin-left: 35px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+.home-page-top {
+    /* height: 500px; */
 }
 
+
 .home-image-1 {
-    width: 100%
+  margin-top: 10px;
+  width: 100%;
+}
+
+.all-daycares-home-page {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 1em;
+    width: 100%;
+}
+
+.daycares-container-home-page {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-decoration: none;
+    overflow-x: hidden;
+    border: 1px solid rgba(200,201,202,1);
+    text-align: center;
+}
+
+
+.daycares-container-home-page:hover {
+    box-shadow: 0px 0px 5px rgba(0,0,0,.3);
+}
+
+.home-page-link-to-daycare {
+    text-decoration: none;
+    color: black;
+    overflow-x: hidden;
+    display: block;
+}
+
+.daycare-img-home-page {
+    width: 90%;
+    padding-bottom: 10px;
+}
+
+.home-page-daycares-header {
+    text-align: center;
 }

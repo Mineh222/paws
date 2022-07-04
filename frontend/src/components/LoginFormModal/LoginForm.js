@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch } from "react-redux";
 import './LoginForm.css';
+import { NavLink } from 'react-router-dom';
 
-function LoginForm() {
+function LoginForm( {setTrigger} ) {
   const dispatch = useDispatch();
   const [credential, setCredential] = useState("");
   const [password, setPassword] = useState("");
@@ -25,12 +26,16 @@ function LoginForm() {
     return dispatch(sessionActions.login({credential: 'Demo', password: 'password'}))
   }
 
+  const directToSignup = () => {
+    setTrigger(false);
+  }
+
   return (
     <div className="form-container-login">
       <form className="login-form" onSubmit={handleSubmit}>
         <ul>
           {errors.map((error, idx) => (
-            <li key={idx}>{error}</li>
+            <li className="errors-login" key={idx}>{error}</li>
           ))}
         </ul>
         <label>
@@ -56,6 +61,10 @@ function LoginForm() {
         <div className="login-buttons">
           <button className="login-button-form" type="submit">Log In</button>
           <button className="demo-button" onClick={demoSubmit}>Demo</button>
+        </div>
+        <div className="new-to-paws">
+          <div className="new-to-paws-text" >New to Paws?</div>
+          <NavLink className="new-to-paws-link" exact to="/signup" onClick={directToSignup}>Sign up</NavLink>
         </div>
       </form>
     </div>

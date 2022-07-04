@@ -32,13 +32,17 @@ export default function Daycares(){
             }
             {daycare.map(daycare => {
                 return (
-                    <div key={daycare.id} className='daycaresContainer2'>
-                        <Link className="link" to={`/daycares/${daycare.id}`}>
+                    <Link className="link" to={`/daycares/${daycare.id}`}>
+                        <div key={daycare.id} className='daycaresContainer2'>
                             <h2 className='daycare-name'>{daycare.name}</h2>
                             <img className='daycare-img'src={daycare.image}></img>
-                        </Link>
-                            <div className='daycare-description'>About us: {daycare.description}</div>
-                    </div>
+                            <h3 className="about-us">About Us</h3>
+                            <div className='daycare-description'>{daycare.description}</div>
+                            <div className="daycare-business-hours">Business Hours: {daycare.businessHours}</div>
+                            <div className="daycare-phone-number">Phone Number: {daycare.phoneNumber}</div>
+                            <div className="daycare-address">Address: {daycare.address}</div>
+                        </div>
+                     </Link>
                 )
             })}
         </main>

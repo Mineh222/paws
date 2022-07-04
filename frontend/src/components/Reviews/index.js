@@ -31,9 +31,9 @@ export default function Reviews() {
             {reviews.map(review => {
                 return (
                     <div key={review.id} className="reviews-list">
-                        <div className='review-user-name'>User: {review.User.username}</div>
-                        <div className='review-rating'>Rating: {review.rating}</div>
-                        <div className='review'>Review: {review.review}</div>
+                        <h3 className='review-user-name'>{review.User.username}</h3>
+                        <div className='review-rating'>Rating: {review.rating}/5</div>
+                        <div className='review'>{review.review}</div>
                         <img className='review-image' src={review.image}></img>
                         {sessionUser?.id === review.userId && (
                             <button className='delete-review-button'

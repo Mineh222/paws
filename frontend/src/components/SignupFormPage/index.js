@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import * as sessionActions from "../../store/session";
 import './SignupForm.css';
+import Footer from "../Footer";
 
 function SignupFormPage() {
   const dispatch = useDispatch();
@@ -29,12 +30,14 @@ function SignupFormPage() {
   };
 
   return (
+    <>
     <div className="signup-form-container">
       <form className="signup-form" onSubmit={handleSubmit}>
         <ul>
-          {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+          {errors.map((error, idx) => <li className="errors-signup" key={idx}>{error}</li>)}
         </ul>
           <input
+            id="email-input"
             type="text"
             value={email}
             placeholder="Email"
@@ -42,6 +45,7 @@ function SignupFormPage() {
             required
           />
           <input
+            id="username-input"
             type="text"
             placeholder="Username"
             value={username}
@@ -49,6 +53,7 @@ function SignupFormPage() {
             required
           />
           <input
+            id="password-input"
             type="password"
             placeholder="Password"
             value={password}
@@ -56,6 +61,7 @@ function SignupFormPage() {
             required
           />
           <input
+            id="confirm-password-input"
             type="password"
             placeholder="Confirm Password"
             value={confirmPassword}
@@ -64,7 +70,10 @@ function SignupFormPage() {
           />
         <button className="signup-button" type="submit">Sign Up</button>
       </form>
+      <img className="sign-up-pic" src="https://i.postimg.cc/nLWzsFng/cinny.jpg"></img>
     </div>
+    {/* <Footer /> */}
+    </>
   );
 }
 

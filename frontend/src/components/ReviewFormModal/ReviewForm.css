@@ -1,7 +1,8 @@
 .review-form-container {
-    height: 400px;
-    width: 350px;
+    height: 440px;
+    width: 400px;
     margin: auto;
+    margin-bottom: -30px;
     color: black;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 16px;
@@ -11,21 +12,67 @@
 .create-review-form {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     justify-items: center;
 }
 
 .post-review-button {
-    padding-left: 48px;
-    padding-right: 48px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    margin-top: 10px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-decoration: none;
+    text-align: center;
     font-size: 16px;
-    background-color: red;
-    border-radius: 2px;
     border: solid red;
-    color: white;
+    padding-bottom: 7px;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 8px;
+    border-radius: 4px;
+    background-color: rgba(224,7,7,1);
+    color: rgba(255,255,255,1);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    box-shadow: none;
+    box-sizing: border-box;
+    transition: background-color .7s;
+    margin-top: 10px;
+    width: 235px;
+}
+
+.post-review-button:hover {
+    background-color: red;
+    box-shadow: 2px;
+}
+
+.review-input {
+    width: 200px;
+}
+
+.review-form-header {
+    font-size: 18px;
+    text-align: center;
+}
+
+.select-label, .review-label {
+    padding-bottom: 10px
+}
+
+.image-label {
+    padding: 10px;
+}
+
+.select-rating {
+    margin-left: 10px;
+    font-size: 16px;
+}
+.review-errors {
+    font-size: 14px;
+    margin-left: 20px;
+    margin-bottom: 5px;
+}
+
+.pls-fix-review-errors {
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.errors {
+    margin: auto;
 }
