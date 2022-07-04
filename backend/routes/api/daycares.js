@@ -58,7 +58,6 @@ router.post('/', requireAuth, daycareValidations, asyncHandler(async (req, res) 
     const daycare = await Daycare.create(req.body);
 
     return res.json(daycare)
-    // return res.redirect('/api/daycares')
 }))
 
 router.get('/:id', asyncHandler(async (req,res) => {

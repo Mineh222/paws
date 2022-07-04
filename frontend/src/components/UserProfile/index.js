@@ -3,7 +3,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import { thunkGetDaycares } from '../../store/daycares';
 import DaycareFormModal from '../DaycareFormModal';
 import { Link } from 'react-router-dom';
-import { thunkGetReviews } from '../../store/reviews';
+import { thunkGetAllReviews } from '../../store/reviews';
 import './UserProfile.css';
 
 export default function UserProfile(){
@@ -23,7 +23,7 @@ export default function UserProfile(){
     }, [dispatch]);
 
     useEffect(() => {
-        dispatch(thunkGetReviews(sessionUser.id))
+        dispatch(thunkGetAllReviews(sessionUser.id))
     }, [dispatch, sessionUser.id])
 
     useEffect(() => {
