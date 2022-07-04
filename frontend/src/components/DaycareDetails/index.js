@@ -48,9 +48,9 @@ export default function DaycareDetails(){
             <h2 className="daycare-title">{daycare.name}</h2>
             <div key={daycare.id} className='daycare-container'>
                 <img className="daycare-image" alt='daycare' src={daycare.image}></img>
-                <h3>About Us</h3>
-                    <p className="daycare-description">{daycare.description}</p>
-                <p className="daycare-address">Address: {daycare.address}</p>
+                <h3 className='about-us-header'>About Us</h3>
+                <p className="daycare-description">{daycare.description}</p>
+                <p className="daycare-address-details">Address: {daycare.address}</p>
                 <p className='daycare-phoneNumber'>Contact Us: {daycare.phoneNumber}</p>
                 <p className='daycare-businessHouse'>Hours Of Operation: {daycare.businessHours}</p>
             </div>

@@ -17,20 +17,38 @@
 }
 
 .daycare-container {
-    padding: 18px;
+    /* padding: 18px; */
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     min-width: 90%;
     text-decoration: none;
     overflow-x: hidden;
-    margin-left: 42.5px;
+    align-items: flex-start;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.daycare-image {
+    min-width: 90%;
+    margin: auto;
+    overflow-x: hidden;
+    display: flex;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: left;
+}
+
+.about-us-header, .daycare-description, .daycare-address-details, .daycare-phoneNumber, .daycare-businessHouse {
+    margin-left: 4%;
 }
 
 .daycare-title {
     margin:auto;
     text-align: center;
-    padding: 10px;
+    padding-bottom: 10px;
     font-size: 30px;
-    margin-left: 5%;
 }
 
 .delete-daycare-button {
@@ -50,7 +68,7 @@
     box-sizing: border-box;
     transition: background-color .7s;
     width: 250px;
-    margin-left: 58px;
+    margin-left: 4%;
 }
 
 .update-daycare-modal-button {
