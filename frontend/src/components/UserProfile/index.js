@@ -50,6 +50,8 @@ export default function UserProfile(){
                 <h2>Account Information:</h2>
                 <p>Username: {sessionUser.username}</p>
                 <p>Email Address: {sessionUser.email}</p>
+                <h3 className="message-text">Thank you for joining the Paws family!</h3>
+                <img className="message-image"src="https://perthisok.com/wp-content/uploads/2021/11/perth-doggy-daycare-pawpals-2.jpeg"></img>
             </div>
             <div className="add-daycare-user-page">
                 <DaycareFormModal />
@@ -76,15 +78,15 @@ export default function UserProfile(){
                                     if (daycare.id === review.daycareId) {
                                         return (
                                             <div>
-                                                <h3>{daycare.name}</h3>
+                                                <h3 className="review-daycare-name">{daycare.name}</h3>
                                                 <Link className='user-profile-link-review' to={`/daycares/${review.daycareId}`}>Visit {daycare.name}</Link>
                                             </div>
                                         )
                                     }
                                 })}
-                                <p>{review.rating}/5</p>
-                                <p>{review.review}</p>
-                                <img src={review.image}></img>
+                                <p className="user-review-rating">My Rating: {review.rating}/5</p>
+                                <p className='user-review'>{review.review}</p>
+                                <img className='user-review-image'src={review.image}></img>
                             </div>
                         )
                     })}
