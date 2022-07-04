@@ -37,8 +37,8 @@ export default function DaycareDetails(){
                     <p className="daycare-address">Address: {daycare.address}</p>
                     <p className='daycare-phoneNumber'>Contact Us: {daycare.phoneNumber}</p>
                     <p className='daycare-businessHouse'>Hours Of Operation: {daycare.businessHours}</p>
-                    <Reviews />
                 </div>
+                <Reviews />
             </main>
         )
     }

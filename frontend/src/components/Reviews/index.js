@@ -35,6 +35,7 @@ export default function Reviews() {
                         <div className='review-rating'>Rating: {review.rating}/5</div>
                         <div className='review'>{review.review}</div>
                         <img className='review-image' src={review.image}></img>
+                        <div>
                         {sessionUser?.id === review.userId && (
                             <button className='delete-review-button'
                                 onClick={() => dispatch(thunkDeleteReview(review.id))}
@@ -42,6 +43,7 @@ export default function Reviews() {
                                 Delete your review
                             </button>
                         )}
+                        </div>
                     </div>
                 )
             })}

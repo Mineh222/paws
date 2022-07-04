@@ -28,3 +28,7 @@ textarea {
     height: 50px;
     width: 200px;
 }
+
+img {
+    border-radius: 4px;
+}
