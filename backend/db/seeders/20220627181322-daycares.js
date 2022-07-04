@@ -35,6 +35,17 @@ module.exports = {
           address: '2711 N California St, Burbank, CA 91504',
           createdAt: new Date(),
           updatedAt: new Date()
+        },
+        {
+          ownerId: 1,
+          name: 'The Hounds Club',
+          description: 'The Hounds Club is made up of dog lovers and owners, just like you. We love, pamper, and even spoil them, and believe that they are members of our family. Just like you, we worry about our dogs and want the very best for them. When we are away, we want them to be safe and healthy, and also want them to be happy, with lots of exercise, socialization, and companionship.',
+          businessHours: 'Open Monday-Sunday 6:30AM-8PM',
+          phoneNumber: '3239547272',
+          image: 'https://thehoundsclub.com/wp-content/uploads/2015/04/DSC_0117-1-300x200.jpg',
+          address: '520 W Windsor Rd, Glendale, CA 91204',
+          createdAt: new Date(),
+          updatedAt: new Date()
         }
       ], {});
   },
