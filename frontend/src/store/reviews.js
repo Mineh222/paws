@@ -2,7 +2,7 @@ import { csrfFetch } from "./csrf";
 
 // types
 const GET_REVIEWS = 'daycares/daycareId/getReviews'
-const GET_ALL_REVIEWS = 'daycares/getAllReviews'
+// const GET_ALL_REVIEWS = 'daycares/getAllReviews'
 const CREATE_REVIEW = 'daycares/daycareId/createReview'
 const DELETE_REVIEW = 'daycares/daycareId/deleteReview'
 
@@ -15,12 +15,12 @@ const actionGetReviews = (reviews) => {
     }
 }
 
-const actionGetAllReviews = (reviews) => {
-    return {
-        type: GET_ALL_REVIEWS,
-        reviews
-    }
-}
+// const actionGetAllReviews = (reviews) => {
+//     return {
+//         type: GET_ALL_REVIEWS,
+//         reviews
+//     }
+// }
 
 const actionCreateReview = (review) => {
     return {
@@ -47,15 +47,15 @@ export const thunkGetReviews = (id) => async dispatch => {
     }
 }
 
-export const thunkGetAllReviews = () => async dispatch => {
-    const response = await csrfFetch('/api/reviews');
+// export const thunkGetAllReviews = () => async dispatch => {
+//     const response = await csrfFetch('/api/reviews');
 
-    if (response.ok) {
-        const allReviews = await response.json();
-        dispatch(actionGetAllReviews(allReviews));
-        return allReviews
-    }
-}
+//     if (response.ok) {
+//         const allReviews = await response.json();
+//         dispatch(actionGetAllReviews(allReviews));
+//         return allReviews
+//     }
+// }
 
 export const thunkCreateReview = (daycareId, review) => async dispatch => {
     const response = await csrfFetch(`/api/daycares/${daycareId}/reviews`, {
@@ -95,11 +95,11 @@ const reviewReducer = (state = {}, action) => {
                 newState[review.id] = review
             })
             return newState
-        case GET_ALL_REVIEWS:
-            action.reviews.forEach(review => {
-                newState[review.id] = review
-            })
-            return newState
+        // case GET_ALL_REVIEWS:
+            // action.reviews.forEach(review => {
+            //     newState[review.id] = review
+            // })
+            // return newState
         case CREATE_REVIEW:
             newState[action.review.id] = action.review
             return newState
