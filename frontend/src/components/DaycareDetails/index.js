@@ -30,15 +30,17 @@ export default function DaycareDetails(){
         return (
             <main className='daycare-details-container'>
                 <h2 className="daycare-title">{daycare.name}</h2>
-                <div className='image-container'>
-                    <img className="daycare-image" alt='daycare' src={daycare.image}></img>
-                </div>
-                <div className='daycare-content'>
-                    <h3 className='about-us-header'>About Us</h3>
-                    <p className="daycare-description">{daycare.description}</p>
-                    <p className="daycare-address-details">Address: {daycare.address}</p>
-                    <p className='daycare-phoneNumber'>Contact Us: {daycare.phoneNumber}</p>
-                    <p className='daycare-businessHouse'>Hours Of Operation: {daycare.businessHours}</p>
+                <div key={daycare.id} className='daycare-container'>
+                    <div className='image-container'>
+                        <img className="daycare-image" alt='daycare' src={daycare.image}></img>
+                    </div>
+                    <div className='daycare-content2'>
+                        <h3 className='about-us-header'>About Us</h3>
+                        <p className="daycare-description">{daycare.description}</p>
+                        <p className="daycare-address-details">Address: {daycare.address}</p>
+                        <p className='daycare-phoneNumber'>Contact Us: {daycare.phoneNumber}</p>
+                        <p className='daycare-businessHouse'>Hours Of Operation: {daycare.businessHours}</p>
+                    </div>
                 </div>
                 <Reviews />
             </main>
@@ -52,13 +54,13 @@ export default function DaycareDetails(){
                 <div className='image-container'>
                     <img className="daycare-image" alt='daycare' src={daycare.image}></img>
                 </div>
-                    <div className='daycare-content'>
-                        <h3 className='about-us-header'>About Us</h3>
-                        <p className="daycare-description">{daycare.description}</p>
-                        <p className="daycare-address-details">Address: {daycare.address}</p>
-                        <p className='daycare-phoneNumber'>Contact Us: {daycare.phoneNumber}</p>
-                        <p className='daycare-businessHouse'>Hours Of Operation: {daycare.businessHours}</p>
-                    </div>
+                <div className='daycare-content'>
+                    <h3 className='about-us-header'>About Us</h3>
+                    <p className="daycare-description">{daycare.description}</p>
+                    <p className="daycare-address-details">Address: {daycare.address}</p>
+                    <p className='daycare-phoneNumber'>Contact Us: {daycare.phoneNumber}</p>
+                    <p className='daycare-businessHouse'>Hours Of Operation: {daycare.businessHours}</p>
+                </div>
             </div>
             {sessionUser.id === daycare.ownerId && (
                 <>

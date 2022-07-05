@@ -9,7 +9,8 @@
 }
 
 .daycare-image {
-    width: 100%;
+    width: 1150px;
+    height: 767px;
     margin: auto;
     display: block;
 }
@@ -29,11 +30,11 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-
+    margin-left: 4%;
 }
 
-.about-us-header, .daycare-description, .daycare-address-details, .daycare-phoneNumber, .daycare-businessHouse {
-    margin-left: 5%;
+.daycare-content2 {
+    margin-left: 4%;
 }
 
 .daycare-title {
