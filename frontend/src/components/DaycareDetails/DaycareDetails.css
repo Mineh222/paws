@@ -15,6 +15,14 @@
     display: block;
 }
 
+@media only screen and (min-width: 1280px) {
+    .daycare-image {
+        width: 2000;
+        height: 1334;
+    }
+}
+
+
 .daycare-container {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     min-width: 100%;
