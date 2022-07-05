@@ -29,19 +29,19 @@ export default function DaycareDetails(){
     if (!sessionUser) {
         return (
             <main className='daycare-details-container'>
-                <h2 className="daycare-title">{daycare.name}</h2>
-                <div key={daycare.id} className='daycare-container'>
+                <div className="title-container">
+                    <h2 className="daycare-title">{daycare.name}</h2>
+                </div>
                     <div className='image-container'>
-                        <img className="daycare-image" alt='daycare' src={daycare.image}></img>
+                        <img className="daycare-image" alt='daycare' width="1150" height="765" src={daycare.image}></img>
                     </div>
-                    <div className='daycare-content2'>
+                    <div className='daycare-content-container'>
                         <h3 className='about-us-header'>About Us</h3>
                         <p className="daycare-description">{daycare.description}</p>
                         <p className="daycare-address-details">Address: {daycare.address}</p>
                         <p className='daycare-phoneNumber'>Contact Us: {daycare.phoneNumber}</p>
                         <p className='daycare-businessHouse'>Hours Of Operation: {daycare.businessHours}</p>
                     </div>
-                </div>
                 <Reviews />
             </main>
         )
@@ -49,19 +49,19 @@ export default function DaycareDetails(){
 
     return (
         <main className='daycare-details-container'>
-            <h2 className="daycare-title">{daycare.name}</h2>
-            <div key={daycare.id} className='daycare-container'>
+            <div className="title-container">
+                <h2 className="daycare-title">{daycare.name}</h2>
+            </div>
                 <div className='image-container'>
-                    <img className="daycare-image" alt='daycare' src={daycare.image}></img>
+                    <img className="daycare-image" alt='daycare' width="1150" height="765" src={daycare.image}></img>
                 </div>
-                <div className='daycare-content'>
+                <div className='daycare-content-container'>
                     <h3 className='about-us-header'>About Us</h3>
                     <p className="daycare-description">{daycare.description}</p>
                     <p className="daycare-address-details">Address: {daycare.address}</p>
                     <p className='daycare-phoneNumber'>Contact Us: {daycare.phoneNumber}</p>
                     <p className='daycare-businessHouse'>Hours Of Operation: {daycare.businessHours}</p>
                 </div>
-            </div>
             {sessionUser.id === daycare.ownerId && (
                 <>
                     <button className="delete-daycare-button" onClick={onDeleteDaycare}>
@@ -70,9 +70,11 @@ export default function DaycareDetails(){
                     <EditDaycareFormModal />
                 </>
             )}
-            {sessionUser && (
-                <ReviewFormModal />
-                )}
+            <div>
+                {sessionUser && (
+                    <ReviewFormModal />
+                    )}
+            </div>
             <Reviews />
         </main>
     )
