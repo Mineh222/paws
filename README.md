@@ -6,6 +6,8 @@ Paws is a clone of Yelp, but with a little twist. On Paws, users can sign-up or 
 
 [Live Link to Paws](https://pawws.herokuapp.com/)
 
+[Paws Documentation[(https://github.com/Mineh222/paws/wiki)
+
 ## Technologies
 
 Paws was built using the following technologies:
