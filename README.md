@@ -28,7 +28,7 @@ Paws was built using the following technologies:
 
 ### Doggy Daycare Businesses (Create, Read, Update, Delete)
 
-* All users on Paws, can view doggy daycares.
+* All users on Paws can view doggy daycares.
 * Users must be logged in to create, update, or delete their doggy daycare.
 * Doggy Daycares can be browsed on the doggy daycare page, accessed from the button on the navigation bar.
 * Logged in users can also view all their doggy daycares on their profile page.
