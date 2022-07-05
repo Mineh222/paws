@@ -23,7 +23,7 @@ export default function UserProfile(){
                 return +daycare.ownerId === +sessionUser.id
             }))
         }
-    }, [selectorDaycares])
+    }, [selectorDaycares, sessionUser])
 
     if (!daycare) return null
 
@@ -40,20 +40,25 @@ export default function UserProfile(){
                     <DaycareFormModal />
                 </div>
                 <div className='thank-you-message'>
-                    <img className="message-image"src="https://perthisok.com/wp-content/uploads/2021/11/perth-doggy-daycare-pawpals-2.jpeg"></img>
+                    <img className="message-image" alt='message-img' src="https://perthisok.com/wp-content/uploads/2021/11/perth-doggy-daycare-pawpals-2.jpeg"></img>
                 </div>
                     <h2 className='user-page-header'>My Doggy Daycares:</h2>
                     <div className="all-daycares-user-page">
                     {daycare.map(daycare => {
                         return (
-                                <div key={daycare.id} className='daycares-container-user-page'>
+                            <div key={daycare.id} className='daycares-container-user-page'>
                                     <Link className="user-profile-link-to-daycare" to={`/daycares/${daycare.id}`}>
                                         <h2 className='daycare-name-user-page'>{daycare.name}</h2>
-                                        <img className="daycare-img-user-page" src={daycare.image}></img>
+                                        <img className="daycare-img-user-page" alt='daycare-img-user-page' src={daycare.image}></img>
                                     </Link>
                             </div>
                         )
                     })}
+                    {daycare.length === 0 && (
+                        <div className="no-daycares-yet">
+                            <h2>No daycares yet!</h2>
+                        </div>
+                    )}
                     </div>
             </main>
         </div>
