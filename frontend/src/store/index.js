@@ -3,11 +3,13 @@ import thunk from 'redux-thunk';
 import sessionReducer from './session';
 import daycareReducer from "./daycares";
 import reviewReducer from "./reviews";
+import favoriteReducer from "./favorites";
 
 const rootReducer = combineReducers({
   session: sessionReducer,
   allDaycares: daycareReducer,
   reviews: reviewReducer,
+  favorites: favoriteReducer
 });
 
 let enhancer;
