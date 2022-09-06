@@ -13,6 +13,7 @@ module.exports = (sequelize, DataTypes) => {
     // associations can be defined here
     Daycare.belongsTo(models.User, { foreignKey: 'ownerId' });
     Daycare.hasMany(models.Review, {foreignKey: 'daycareId', onDelete: 'CASCADE', hooks: true});
+    Daycare.hasMany(models.Favorite, {foreignKey: 'daycareId', onDelete: 'CASCADE', hooks: true});
   };
   return Daycare;
 };
