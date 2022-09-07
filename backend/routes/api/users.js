@@ -2,7 +2,7 @@ const express = require('express');
 const asyncHandler = require('express-async-handler');
 
 const { setTokenCookie, requireAuth } = require('../../utils/auth');
-const { User } = require('../../db/models');
+const { User, Favorite, Daycare } = require('../../db/models');
 
 const router = express.Router();
 
@@ -44,5 +44,18 @@ router.post(
       });
     }),
 );
+
+// user favorites
+
+router.get('/:userId/favorites', asyncHandler(async (req, res) => {
+  const { userId } = req.params;
+  const favorites = await Favorite.findAll({
+    where: {
+      userId: userId
+    },
+    include: [User, Daycare]
+  })
+  return res.json(favorites);
+}))
 
 module.exports = router;

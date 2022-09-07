@@ -7,7 +7,7 @@ const router = express.Router();
 
 const { requireAuth } = require('../../utils/auth')
 
-router.get('/daycare/:daycareId', asyncHandler(async (req, res) => {
+router.get('/daycares/:daycareId', asyncHandler(async (req, res) => {
     const daycareId = req.params;
     const favorites = await Favorite.findAll({
         where: {
@@ -37,3 +37,5 @@ router.delete('/:favoriteId', requireAuth, asyncHandler(async (req, res) => {
 
     return res.json({ success: true });
 }))
+
+module.exports = router;
