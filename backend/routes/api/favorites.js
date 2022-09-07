@@ -37,3 +37,5 @@ router.delete('/:favoriteId', requireAuth, asyncHandler(async (req, res) => {
 
     return res.json({ success: true });
 }))
+
+module.exports = router;

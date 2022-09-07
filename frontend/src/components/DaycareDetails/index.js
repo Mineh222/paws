@@ -6,6 +6,7 @@ import ReviewFormModal from '../ReviewFormModal';
 import Reviews from '../Reviews';
 import { useParams, useHistory } from 'react-router-dom';
 import './DaycareDetails.css';
+import SaveButton from '../SaveButton';
 
 export default function DaycareDetails(){
     const dispatch = useDispatch();
@@ -72,7 +73,10 @@ export default function DaycareDetails(){
             )}
             <div>
                 {sessionUser && (
-                    <ReviewFormModal />
+                    <>
+                        <ReviewFormModal />
+                        <SaveButton daycareId={id} sessionUser={sessionUser} />
+                    </>
                     )}
             </div>
             <Reviews />
