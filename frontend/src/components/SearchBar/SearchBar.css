@@ -1,0 +1,112 @@
+.search {
+    padding-right: 5px;
+}
+.search-inputs {
+    display:flex;
+    flex-direction: row;
+    border-radius: 10px;
+    height: 35px;
+    justify-content: space-between;
+    width: 100%;
+    background-color: rgb(241, 240, 240);
+
+}
+
+.search input {
+    background-color: rgb(241, 240, 240);
+    border: 0;
+    margin-left: 10px;
+    font-size: 16px;
+    padding: 5px 5px 5px 5px;
+    height: 25px;
+    width: 100%;
+}
+
+.search input:focus {
+    outline: 0;
+}
+
+.searchIcon {
+    display: flex;
+    border-radius: 40%;
+    margin-right: 5px;
+    margin: 5px 5px 5px 0;
+    background-color: rgb(241, 240, 240);
+    place-items: center;
+}
+
+.search-icon-button{
+    background-color: rgb(241, 240, 240);
+    border: 0;
+    color: rgb(129, 129, 129)
+}
+
+#search-icon {
+    border-radius: 50%;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+#search-icon:hover{
+    background-color: lightgray;
+    border-radius: 50%;
+    transition: 1s;
+    cursor: pointer;
+}
+
+.close-icon-button {
+    background-color: rgb(241, 240, 240);
+    border: 0;
+    color: rgb(129, 129, 129)
+}
+
+#close-icon {
+    cursor: pointer;
+    border-radius: 50%;
+    transition: 0.5s;
+    background-color: rgb(241, 240, 240);
+}
+
+#close-icon:hover{
+    background-color: lightgray;
+    border-radius: 50%;
+    transition: 1s;
+}
+
+.daycares-results {
+    margin-top: 5px;
+    border: 1px solid rgb(209, 206, 206);
+    border-radius: 2px;
+    background-color: white;
+    box-shadow: rgba(0,0,0,0.35);
+    overflow: hidden;
+    width: 300px;
+    position: absolute;
+    margin-left: -2rem;
+    z-index: 4;
+    transition: .3s;
+}
+
+.searched-daycare {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+}
+
+.searched-daycare:hover {
+    background-color: #FAFAFA;
+}
+
+#search-bar-daycare-pic {
+    border-radius: 10px;
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 5px;
+}
+
+#search-bar-daycare-name {
+    text-decoration: none;
+    color: black;
+}

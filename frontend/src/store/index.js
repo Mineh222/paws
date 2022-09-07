@@ -4,12 +4,14 @@ import sessionReducer from './session';
 import daycareReducer from "./daycares";
 import reviewReducer from "./reviews";
 import favoriteReducer from "./favorites";
+import searchReducer from "./search";
 
 const rootReducer = combineReducers({
   session: sessionReducer,
   allDaycares: daycareReducer,
   reviews: reviewReducer,
-  favorites: favoriteReducer
+  favorites: favoriteReducer,
+  search: searchReducer
 });
 
 let enhancer;
