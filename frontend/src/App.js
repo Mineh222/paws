@@ -33,7 +33,7 @@ function App() {
           <Route path='/daycares/:id'>
             <DaycareDetails />
           </Route>
-          <Route path="/profile/:id">
+          <Route path="/profile">
             <UserProfile />
           </Route>
           <Route>

@@ -40,7 +40,7 @@ function Navigation({ isLoaded }){
       {sessionUser ?
         <div className="loggedin-user">
           <ProfileButton user={sessionUser} />
-          <NavLink className='profile-link' to={`/profile/${sessionUser.id}`}>My Profile</NavLink>
+          <NavLink className='profile-link' to={`/profile`}>My Profile</NavLink>
         </div>
         :
         <div className='signup'>

@@ -6,6 +6,7 @@ const GET_DAYCARE = 'daycares/getDaycare'
 const CREATE_DAYCARE = 'daycares/createDaycare'
 const EDIT_DAYCARE = 'daycares/editDaycare'
 const DELETE_DAYCARE = 'daycares/deleteDaycare'
+const GET_SEARCHED_DAYCARES = 'daycares/getSearchedDaycares'
 
 // action creators
 const actionGetDaycares = (daycares) => {
@@ -43,6 +44,13 @@ const actionDeleteDaycare = (daycareId) => {
     }
 }
 
+const actionGetSearchedDaycares = (daycares) => {
+    return {
+        type: GET_SEARCHED_DAYCARES,
+        daycares
+    }
+}
+
 // thunks
 export const thunkGetDaycares = () => async dispatch => {
     const response = await csrfFetch(`/api/daycares`);
@@ -53,6 +61,16 @@ export const thunkGetDaycares = () => async dispatch => {
         return daycareData
     }
 };
+
+export const thunkGetSearchedDaycares = (searchword) => async dispatch => {
+    const response = await csrfFetch(`/api/daycares/search/${searchword}`);
+
+    if (response.ok) {
+        const data = await response.json();
+        dispatch(actionGetSearchedDaycares(data));
+        return data;
+    }
+}
 
 export const thunkGetDaycare = (id) => async dispatch => {
     const response = await csrfFetch(`/api/daycares/${id}`);
@@ -114,9 +132,15 @@ const daycareReducer = (state = {}, action) => {
                 newState[daycare.id] = daycare
             })
             return newState
-            case CREATE_DAYCARE:
-                newState[action.daycare.id] = action.daycare
-                return newState
+        case GET_SEARCHED_DAYCARES:
+            newState = {};
+            action.daycares.forEach(daycare => {
+                newState[daycare.id] = daycare
+            });
+            return newState
+        case CREATE_DAYCARE:
+            newState[action.daycare.id] = action.daycare
+            return newState
         case GET_DAYCARE:
             let doggyDaycareDetails = {}
             doggyDaycareDetails[action.daycare.id] = action.daycare
