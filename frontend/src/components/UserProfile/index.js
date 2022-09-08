@@ -49,7 +49,7 @@ export default function UserProfile(){
                     <DaycareFormModal />
                 </div>
                 <div className='thank-you-message'>
-                    <img className="message-image" alt='message-img' src="https://perthisok.com/wp-content/uploads/2021/11/perth-doggy-daycare-pawpals-2.jpeg"></img>
+                    <img className="message-image" alt='message-img' src="https://www.dogtiredsc.com/wp-content/uploads/2021/03/daycare.jpg"></img>
                 </div>
                 <h2 className='user-page-header'>My Doggy Daycares:</h2>
                 <div className="all-daycares-user-page">

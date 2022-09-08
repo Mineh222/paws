@@ -1,7 +1,7 @@
 const express = require('express');
 const asyncHandler = require('express-async-handler');
 
-const { Daycare, Review, User } = require('../../db/models');
+const { Daycare, Review, User, Sequelize } = require('../../db/models');
 
 const router = express.Router();
 
@@ -125,5 +125,19 @@ router.post("/:id/reviews", requireAuth, reviewValidations, asyncHandler(async (
     return res.json(userReview)
 
 }));
+
+//=====Search======
+
+router.get('/search/:searchword', asyncHandler(async (req, res) => {
+    const { searchword } = req.params;
+    const daycares = await Daycare.findAll({
+        where: {
+            name: {
+                [Sequelize.Op.iLike]: '%'+searchword+'%'
+            }
+        }
+    })
+    return res.json(daycares)
+}))
 
 module.exports = router;
