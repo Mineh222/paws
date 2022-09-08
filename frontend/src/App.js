@@ -8,6 +8,7 @@ import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import HomePage from "./components/HomePage";
 import UserProfile from "./components/UserProfile";
+import SearchResults from "./components/SearchResults";
 
 function App() {
   const dispatch = useDispatch();
@@ -36,8 +37,11 @@ function App() {
           <Route path="/profile">
             <UserProfile />
           </Route>
+          <Route path='/search/:searchword'>
+            <SearchResults />
+          </Route>
           <Route>
-            Page not found.
+            <h1>Page not found.</h1>
           </Route>
         </Switch>
       )}
