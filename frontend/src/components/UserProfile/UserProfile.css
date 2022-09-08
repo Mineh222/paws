@@ -83,3 +83,38 @@
 .no-daycares-yet {
     height: 300px;
 }
+
+.profile-page-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 300px;
+    border-bottom: 1px solid rgba(200,201,202,1);;
+}
+
+.button1, .button3 {
+    border: none;
+    background-color: rgba(224,7,7,1);
+    color: white;
+    border-radius: 4px;
+    padding: 10px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.button2, .button4 {
+    border: 1px solid rgba(200,201,202,1);
+    background-color: transparent;
+    color: black;
+    border-radius: 4px;
+    padding: 10px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+#my-daycares-heading, #saved-daycares-heading {
+    margin-left: 30px;
+}
