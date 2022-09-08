@@ -73,10 +73,10 @@ export default function DaycareDetails(){
             )}
             <div>
                 {sessionUser && (
-                    <>
+                    <div className="review-save-buttons">
                         <ReviewFormModal />
                         <SaveButton daycareId={id} sessionUser={sessionUser} />
-                    </>
+                    </div>
                     )}
             </div>
             <Reviews />

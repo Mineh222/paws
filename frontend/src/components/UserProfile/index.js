@@ -15,6 +15,7 @@ export default function UserProfile(){
     const favorites = useSelector(state => Object.values(state.favorites));
 
     const [daycare, setDaycare] = useState([]);
+    const [page, setPage] = useState(0);
 
     useEffect(() => {
         dispatch(thunkGetDaycares())
@@ -51,35 +52,66 @@ export default function UserProfile(){
                 <div className='thank-you-message'>
                     <img className="message-image" alt='message-img' src="https://www.dogtiredsc.com/wp-content/uploads/2021/03/daycare.jpg"></img>
                 </div>
-                <h2 className='user-page-header'>My Doggy Daycares:</h2>
-                <div className="all-daycares-user-page">
-                {daycare.map(daycare => {
-                    return (
-                        <div key={daycare.id} className='daycares-container-user-page'>
-                                <Link className="user-profile-link-to-daycare" to={`/daycares/${daycare.id}`}>
-                                    <h2 className='daycare-name-user-page'>{daycare.name}</h2>
-                                    <img className="daycare-img-user-page" alt='daycare-img-user-page' src={daycare.image}></img>
-                                </Link>
+                <div className="profile-page-buttons">
+                    <button className={page === 0 ? "button1" : "button2"} onClick={() => setPage(0)}>
+                        <div>
+                            My Doggy Daycares
                         </div>
-                    )
-                })}
-                {daycare.length === 0 && (
-                    <div className="no-daycares-yet">
-                        <h2>No daycares yet!</h2>
-                    </div>
-                )}
+                    </button>
+                    <button className={page === 1 ? "button3" : "button4"} onClick={() => setPage(1)}>
+                        <div>
+                            Saved Daycares
+                        </div>
+                    </button>
                 </div>
-                <h2>Saved Daycares:</h2>
-                {favorites.map(favorite => {
-                    return (
-                        <div key={favorite.id}>
-                            <Link to={`/daycares/${favorite.daycareId}`}>
-                                <h2 className='daycare-name-user-page'>{favorite.Daycare?.name}</h2>
-                                <img className="daycare-img-user-page" alt='daycare-img-user-page' src={favorite.Daycare?.image}></img>
-                            </Link>
+                {page === 0 && (
+                    <>
+                        {daycare.length > 0 && (
+                            <h2 id="my-daycares-heading">My Daycares:</h2>
+                        )}
+                        <div className="all-daycares-user-page">
+                        {daycare.map(daycare => {
+                            return (
+                                <div key={daycare.id} className='daycares-container-user-page'>
+                                        <Link className="user-profile-link-to-daycare" to={`/daycares/${daycare.id}`}>
+                                            <h2 className='daycare-name-user-page'>{daycare.name}</h2>
+                                            <img className="daycare-img-user-page" alt='daycare-img-user-page' src={daycare.image}></img>
+                                        </Link>
+                                </div>
+                            )
+                        })}
+                        {daycare.length === 0 && (
+                            <div className="no-daycares-yet">
+                                <h2>No daycares yet!</h2>
+                            </div>
+                        )}
                         </div>
-                    )
-                })}
+                    </>
+                )}
+                {page === 1 && (
+                    <>
+                        {favorites.length > 0 && (
+                            <h2 id="saved-daycares-heading">Saved Daycares:</h2>
+                        )}
+                        <div className="all-daycares-user-page">
+                            {favorites.map(favorite => {
+                                return (
+                                    <div key={favorite.id} className='daycares-container-user-page'>
+                                        <Link className="user-profile-link-to-daycare" to={`/daycares/${favorite.daycareId}`}>
+                                            <h2 className='daycare-name-user-page'>{favorite.Daycare?.name}</h2>
+                                            <img className="daycare-img-user-page" alt='daycare-img-user-page' src={favorite.Daycare?.image}></img>
+                                        </Link>
+                                    </div>
+                                )
+                            })}
+                            {favorites.length === 0 && (
+                                <div className="no-daycares-yet">
+                                    <h2>No saved daycares yet!</h2>
+                                </div>
+                            )}
+                        </div>
+                    </>
+                )}
             </main>
         </div>
     )

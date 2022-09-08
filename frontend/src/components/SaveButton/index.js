@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { thunkFavorite, thunkUnfavorite, thunkGetUserFavorites } from '../../store/favorites';
 import BookmarkBorderOutlinedIcon from '@mui/icons-material/BookmarkBorderOutlined';
 import BookmarkOutlinedIcon from '@mui/icons-material/BookmarkOutlined';
+import './SaveButton.css';
 
 export default function SaveButton({daycareId, sessionUser}) {
     const dispatch = useDispatch();
@@ -34,9 +35,19 @@ export default function SaveButton({daycareId, sessionUser}) {
     return (
         <div>
             {!currentFavorite ?
-                <button onClick={saveButton}><BookmarkBorderOutlinedIcon /></button>
+                <button className='save-button' onClick={saveButton}>
+                    <div className="save-button2">
+                        <BookmarkBorderOutlinedIcon />
+                        <div>Save</div>
+                    </div>
+                </button>
                 :
-                <button onClick={unsaveButton}><BookmarkOutlinedIcon /></button>
+                <button className='save-button' onClick={unsaveButton}>
+                    <div className='save-button2'>
+                        <BookmarkOutlinedIcon />
+                        <div>Saved</div>
+                    </div>
+                </button>
             }
         </div>
     )

@@ -66,10 +66,10 @@
     text-align: center;
     font-size: 16px;
     border: solid red;
-    padding-bottom: 7px;
-    padding-left: 16px;
-    padding-right: 16px;
-    padding-top: 8px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
     border-radius: 4px;
     background-color: rgba(224,7,7,1);
     color: rgba(255,255,255,1);
@@ -77,10 +77,16 @@
     box-shadow: none;
     box-sizing: border-box;
     transition: background-color .7s;
-    width: 250px;
+    /* width: 250px; */
 }
 
 .delete-daycare-button:hover, .update-daycare-modal-button:hover, .leave-review-modal-button:hover {
     background-color: red;
     box-shadow: 2px;
+}
+
+.review-save-buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
 }

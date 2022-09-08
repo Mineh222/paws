@@ -9,6 +9,7 @@ import Navigation from "./components/Navigation";
 import HomePage from "./components/HomePage";
 import UserProfile from "./components/UserProfile";
 import SearchResults from "./components/SearchResults";
+import PageNotFound from "./components/404";
 
 function App() {
   const dispatch = useDispatch();
@@ -41,7 +42,7 @@ function App() {
             <SearchResults />
           </Route>
           <Route>
-            <h1>Page not found.</h1>
+            <PageNotFound />
           </Route>
         </Switch>
       )}
