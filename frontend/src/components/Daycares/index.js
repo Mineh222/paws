@@ -30,7 +30,7 @@ export default function Daycares(){
             {sessionUser &&
                 <DaycareFormModal />
             }
-            {daycare.map(daycare => {
+            {daycare.slice(0,8).map(daycare => {
                 return (
                     <Link key={daycare.name} className="link" to={`/daycares/${daycare.id}`}>
                         <div key={daycare.id} className='daycaresContainer2'>
