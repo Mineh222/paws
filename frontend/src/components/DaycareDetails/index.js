@@ -7,6 +7,7 @@ import Reviews from '../Reviews';
 import { useParams, useHistory } from 'react-router-dom';
 import './DaycareDetails.css';
 import SaveButton from '../SaveButton';
+import { FaStar } from 'react-icons/fa';
 
 export default function DaycareDetails(){
     const dispatch = useDispatch();

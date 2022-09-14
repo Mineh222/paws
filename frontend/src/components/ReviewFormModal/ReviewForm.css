@@ -95,3 +95,25 @@
     gap: 5px;
     font-size: 18px;
 }
+
+/* stars */
+
+.stars{
+    display: none;
+  }
+
+  .star {
+    cursor: pointer;
+    transition: color 200ms;
+  }
+
+  .star-rating-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+  }
+
+  #review_stars {
+    display: flex;
+    flex-direction: row;
+  }
