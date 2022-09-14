@@ -5,6 +5,7 @@ import DaycareFormModal from '../DaycareFormModal';
 import { Link } from 'react-router-dom';
 import './UserProfile.css';
 import { thunkGetUserFavorites } from '../../store/favorites';
+// import { thunkGetAllFavorites } from '../../store/favorites';
 
 export default function UserProfile(){
     const dispatch = useDispatch();
@@ -12,11 +13,11 @@ export default function UserProfile(){
     const sessionUser = useSelector((state) => state.session.user);
     const userId = sessionUser?.id;
     const selectorDaycares = useSelector(state => state.allDaycares);
-    // const favorites = useSelector(state => Object.values(state.favorites));
-    const favorites = useSelector(state => state.favorites)
+    const favorites = useSelector(state => Object.values(state.favorites));
+    // const favorites = useSelector(state => state.favorites)
 
     const [daycare, setDaycare] = useState([]);
-    const [favorite, setFavorite] = useState([]);
+    // const [favorite, setFavorite] = useState([]);
     const [page, setPage] = useState(0);
 
     useEffect(() => {
@@ -24,10 +25,8 @@ export default function UserProfile(){
     }, [dispatch]);
 
     useEffect(() => {
-        if (userId) {
-            dispatch(thunkGetUserFavorites(userId))
-        }
-    }, [dispatch, userId])
+        dispatch(thunkGetUserFavorites(userId))
+    }, [dispatch])
 
     useEffect(() => {
         if(selectorDaycares) {
@@ -35,15 +34,11 @@ export default function UserProfile(){
                 return +daycare.ownerId === +sessionUser.id
             }))
         }
-
-        if (favorites) {
-            setFavorite(Object.values(favorites))
-        }
-    }, [selectorDaycares, sessionUser, favorites])
+    }, [selectorDaycares, sessionUser])
 
 
     if (!daycare) return null
-    if (!favorite) return null
+    if (!favorites) return null
 
     return (
         <div className='profile-page-container'>
@@ -98,11 +93,11 @@ export default function UserProfile(){
                 )}
                 {page === 1 && (
                     <>
-                        {favorite.length > 0 && (
+                        {favorites.length > 0 && (
                             <h2 id="saved-daycares-heading">Saved Daycares:</h2>
                         )}
                         <div className="all-daycares-user-page">
-                            {favorite.map(favorite => {
+                            {favorites.map(favorite => {
                                 return (
                                     <div key={favorite.id} className='daycares-container-user-page'>
                                         <Link className="user-profile-link-to-daycare" to={`/daycares/${favorite.daycareId}`}>
@@ -112,7 +107,7 @@ export default function UserProfile(){
                                     </div>
                                 )
                             })}
-                            {favorite.length === 0 && (
+                            {favorites.length === 0 && (
                                 <div className="no-daycares-yet">
                                     <h2>No saved daycares yet!</h2>
                                 </div>

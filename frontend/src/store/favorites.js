@@ -5,8 +5,16 @@ const FAVORITE = 'favorites/favorite';
 const UNFAVORITE = 'favorites/unfavorite';
 const GET_DAYCARE_FAVORITES = 'favorites/getDaycareFavorites';
 const GET_USER_FAVORITES = 'favorites/getUserFavorites';
+const GET_ALL_FAVORITES = 'favorites/getAllFavorites';
 
 // action creators
+const actionGetAllFavorites = (favorites) => {
+    return {
+        type: GET_ALL_FAVORITES,
+        favorites
+    }
+}
+
 const actionFavorite = (favorite) => {
     return {
         type: FAVORITE,
@@ -36,6 +44,16 @@ const actionGetUserFavorites = (favorites) => {
 }
 
 // thunks
+export const thunkGetAllFavorites = () => async dispatch => {
+    const response = await csrfFetch('/api/favorites');
+
+    if (response.ok) {
+        const favorites = await response.json();
+        dispatch(actionGetAllFavorites(favorites));
+        return favorites;
+    }
+}
+
 export const thunkFavorite = (favorite) => async dispatch => {
     const response = await csrfFetch(`/api/favorites`, {
         method: "POST",
@@ -87,6 +105,10 @@ const favoriteReducer = (state = {}, action) => {
     let newState = {...state}
 
     switch (action.type) {
+        case GET_ALL_FAVORITES:
+            action.favorites.forEach(favorite => {
+                newState[favorite.id] = favorite
+            })
         case FAVORITE:
             return {
                 ...state,

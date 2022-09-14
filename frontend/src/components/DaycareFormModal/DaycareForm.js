@@ -1,10 +1,13 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 import { thunkCreateDaycare } from "../../store/daycares";
 import './DaycareForm.css';
 
 const CreateDaycareForm = ( {setTrigger} ) => {
     const dispatch = useDispatch();
+    const history = useHistory();
+
     const sessionUser = useSelector((state) => state.session.user)
 
     const [name, setName] = useState('');
@@ -51,6 +54,7 @@ const CreateDaycareForm = ( {setTrigger} ) => {
 
         if (createdDaycare) {
             reset()
+            history.push('/daycares')
         }
     }
 

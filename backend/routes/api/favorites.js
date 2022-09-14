@@ -7,6 +7,12 @@ const router = express.Router();
 
 const { requireAuth } = require('../../utils/auth')
 
+router.get('/', asyncHandler(async (req,res) => {
+    const favorites = await Favorite.findAll()
+
+    return res.json(favorites)
+}))
+
 router.get('/daycares/:daycareId', asyncHandler(async (req, res) => {
     const daycareId = req.params;
     const favorites = await Favorite.findAll({
