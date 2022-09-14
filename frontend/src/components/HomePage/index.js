@@ -29,7 +29,7 @@ export default function HomePage() {
             </div>
             <h2 className="home-page-daycares-header">Recommended Doggy Daycares</h2>
             <div className="all-daycares-home-page">
-                {daycare.map(daycare => {
+                {daycare.slice(0,8).map(daycare => {
                     return (
                             <div key={daycare.id} className='daycares-container-home-page'>
                                 <Link className="home-page-link-to-daycare" to={`/daycares/${daycare.id}`}>

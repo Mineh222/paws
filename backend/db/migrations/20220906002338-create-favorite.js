@@ -16,6 +16,7 @@ module.exports = {
       daycareId: {
         allowNull: false,
         type: Sequelize.INTEGER,
+        onDelete: "CASCADE",
         references: {model: 'Daycares'}
       },
       createdAt: {

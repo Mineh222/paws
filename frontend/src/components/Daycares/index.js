@@ -8,20 +8,20 @@ import './Daycares.css'
 export default function Daycares(){
     const dispatch = useDispatch();
 
-    const selectorDaycares = useSelector(state => state.allDaycares)
+    const selectorDaycares = useSelector(state => Object.values(state.allDaycares))
     const sessionUser = useSelector((state) => state.session.user);
 
-    const [daycare, setDaycare] = useState([]);
+    // const [daycare, setDaycare] = useState([]);
 
     useEffect(() => {
         dispatch(thunkGetDaycares())
     }, [dispatch]);
 
-    useEffect(() => {
-        if(selectorDaycares) {
-            setDaycare(Object.values(selectorDaycares))
-        }
-    }, [selectorDaycares])
+    // useEffect(() => {
+    //     if(selectorDaycares) {
+    //         setDaycare(Object.values(selectorDaycares))
+    //     }
+    // }, [selectorDaycares])
 
     return (
         <main className='daycaresContainer'>
@@ -30,7 +30,7 @@ export default function Daycares(){
             {sessionUser &&
                 <DaycareFormModal />
             }
-            {daycare.slice(0,8).map(daycare => {
+            {selectorDaycares.reverse().map(daycare => {
                 return (
                     <Link key={daycare.name} className="link" to={`/daycares/${daycare.id}`}>
                         <div key={daycare.id} className='daycaresContainer2'>
