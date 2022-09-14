@@ -1,6 +1,17 @@
-.review-form-container {
+.review-form-container-errors {
     height: 440px;
-    width: 400px;
+    width: 500px;
+    margin: auto;
+    margin-bottom: -30px;
+    color: black;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.review-form-container {
+    height: 350px;
+    width: 500px;
     margin: auto;
     margin-bottom: -30px;
     color: black;

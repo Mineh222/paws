@@ -31,7 +31,7 @@ function LoginForm( {setTrigger} ) {
   }
 
   return (
-    <div className="form-container-login">
+    <div className={errors.length === 0 ? "form-container-login" : "form-container-login-errors"}>
       <form className="login-form" onSubmit={handleSubmit}>
         <ul>
           {errors.map((error, idx) => (

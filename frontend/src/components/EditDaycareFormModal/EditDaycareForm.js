@@ -71,7 +71,7 @@ const EditDaycareForm = ( {setTrigger} ) => {
     }
 
     return (
-        <section className="edit-daycare-form-container">
+        <section className={hasSubmitted && validationErrors.length > 0 ? "edit-daycare-form-container-errors" : "edit-daycare-form-container"}>
             <form className="edit-daycare-form" onSubmit={handleSubmit}>
                 <h2 className="edit-daycare-form-heading">Make changes to your business:</h2>
                 {hasSubmitted && validationErrors.length > 0 && (

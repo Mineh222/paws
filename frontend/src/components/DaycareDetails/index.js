@@ -37,11 +37,16 @@ export default function DaycareDetails(){
                         <img className="daycare-image" alt='daycare' width="1150" height="765" src={daycare.image}></img>
                     </div>
                     <div className='daycare-content-container'>
-                        <h3 className='about-us-header'>About Us</h3>
-                        <p className="daycare-description">{daycare.description}</p>
-                        <p className="daycare-address-details">Address: {daycare.address}</p>
-                        <p className='daycare-phoneNumber'>Contact Us: {daycare.phoneNumber}</p>
-                        <p className='daycare-businessHouse'>Hours Of Operation: {daycare.businessHours}</p>
+                        <div className="location-hours">
+                            <h3>Location & Hours</h3>
+                            <p className="daycare-address-details">Address: {daycare.address}</p>
+                            <p className='daycare-businessHouse'>Hours Of Operation: {daycare.businessHours}</p>
+                        </div>
+                        <div className="business-about">
+                            <h3 className='about-us-header'>About the Business</h3>
+                            <p className="daycare-description">{daycare.description}</p>
+                            <p className='daycare-phoneNumber'>Contact Us: &#40;{daycare.phoneNumber.slice(0,3)}&#41; {daycare.phoneNumber.slice(3,6)} - {daycare.phoneNumber.slice(6,10)}</p>
+                        </div>
                     </div>
                 <Reviews />
             </main>

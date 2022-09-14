@@ -1,5 +1,16 @@
-.edit-daycare-form-container {
+.edit-daycare-form-container-errors {
     height: 550px;
+    width: 500px;
+    margin: auto;
+    margin-bottom: -30px;
+    color: black;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.edit-daycare-form-container {
+    height: 440px;
     width: 500px;
     margin: auto;
     margin-bottom: -30px;

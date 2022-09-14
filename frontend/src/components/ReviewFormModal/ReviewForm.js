@@ -57,7 +57,7 @@ const CreateReviewForm = ({setTrigger}) => {
     const NUMBERS = [1,2,3,4,5]
 
     return (
-        <section className="review-form-container">
+        <section className={hasSubmitted && validationErrors.length > 0 ? "review-form-container-errors" : "review-form-container"}>
             <form className="create-review-form" onSubmit={handleSubmit}>
                 <h2 className="review-form-header">Let us know what you think of our doggy day care!</h2>
                 {hasSubmitted && validationErrors.length > 0 && (

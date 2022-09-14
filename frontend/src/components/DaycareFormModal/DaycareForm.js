@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { thunkCreateDaycare } from "../../store/daycares";
@@ -69,7 +69,7 @@ const CreateDaycareForm = ( {setTrigger} ) => {
     }
 
     return (
-        <section className="daycare-form-container">
+        <section className={hasSubmitted && validationErrors.length > 0 ? "daycare-form-container-errors" : "daycare-form-container"}>
             <form className="create-daycare-form" onSubmit={handleSubmit}>
                 <h2 className="daycare-form-heading">Set up your doggy day care business on Paws!</h2>
                 {hasSubmitted && validationErrors.length > 0 && (

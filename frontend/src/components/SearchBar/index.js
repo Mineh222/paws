@@ -39,11 +39,6 @@ const SearchBar = () => {
         history.push(`/search/${wordEntry}`)
     }
 
-    const cancelSearch = () => {
-        setFilteredDaycares([]);
-        setWordEntry("")
-    }
-
     useEffect(() => {
         const closeSearch = (e) => {
           if(e.path[0].tagName !== "INPUT"){
@@ -51,8 +46,8 @@ const SearchBar = () => {
             setWordEntry('')
           }
         }
-        document.body.addEventListener("click", closeSearch)
-        return () => document.body.removeEventListener("click", closeSearch)
+        document.addEventListener("click", closeSearch)
+        return () => document.removeEventListener("click", closeSearch)
       })
 
     if (!daycares) return null;
