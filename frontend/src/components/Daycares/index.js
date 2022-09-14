@@ -11,17 +11,9 @@ export default function Daycares(){
     const selectorDaycares = useSelector(state => Object.values(state.allDaycares))
     const sessionUser = useSelector((state) => state.session.user);
 
-    // const [daycare, setDaycare] = useState([]);
-
     useEffect(() => {
         dispatch(thunkGetDaycares())
     }, [dispatch]);
-
-    // useEffect(() => {
-    //     if(selectorDaycares) {
-    //         setDaycare(Object.values(selectorDaycares))
-    //     }
-    // }, [selectorDaycares])
 
     return (
         <main className='daycaresContainer'>
@@ -34,13 +26,15 @@ export default function Daycares(){
                 return (
                     <Link key={daycare.name} className="link" to={`/daycares/${daycare.id}`}>
                         <div key={daycare.id} className='daycaresContainer2'>
-                            <h2 className='daycare-name'>{daycare.name}</h2>
-                            <img className='daycare-img' alt='daycare-img' src={daycare.image}></img>
-                            <h3 className="about-us">About Us</h3>
-                            <div className='daycare-description'>{daycare.description}</div>
-                            <div className="daycare-business-hours">Business Hours: {daycare.businessHours}</div>
-                            <div className="daycare-phone-number">Phone Number: {daycare.phoneNumber}</div>
-                            <div className="daycare-address">Address: {daycare.address}</div>
+                            <div className="daycare-image-container">
+                                <img className='daycare-img' alt='daycare-img' src={daycare.image}></img>
+                            </div>
+                            <div className="daycare-info-container">
+                                <h2 className='daycare-name'>{daycare.name}</h2>
+                                <div className="daycare-business-hours"><span id="business-hours">Business Hours:</span> {daycare.businessHours}</div>
+                                <div className="daycare-phone-number">Phone Number: &#40;{daycare.phoneNumber.slice(0,3)}&#41; {daycare.phoneNumber.slice(3,6)} - {daycare.phoneNumber.slice(6,10)}</div>
+                                <div className="daycare-address">Address: {daycare.address}</div>
+                            </div>
                         </div>
                      </Link>
                 )
