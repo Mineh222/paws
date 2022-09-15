@@ -4,6 +4,7 @@ import { thunkGetReviews, thunkDeleteReview } from '../../store/reviews';
 import { useParams } from 'react-router-dom';
 import './Reviews.css';
 import { FaStar } from 'react-icons/fa';
+import moment from 'moment';
 
 export default function Reviews() {
     const dispatch = useDispatch();
@@ -33,53 +34,56 @@ export default function Reviews() {
                 return (
                     <div key={review.id} className="reviews-list">
                         <h3 className='review-user-name'>{review.User.username}</h3>
-                        <div className='review-rating'>
-                        {review.rating === 1 && (
-                            <>
-                                <FaStar color="#ffc107"/>
-                                <FaStar color="#e4e5e9"/>
-                                <FaStar color="#e4e5e9"/>
-                                <FaStar color="#e4e5e9"/>
-                                <FaStar color="#e4e5e9"/>
-                            </>
-                            )}
-                        {review.rating === 2 && (
-                            <>
-                                <FaStar color="#ffc107"/>
-                                <FaStar color="#ffc107"/>
-                                <FaStar color="#e4e5e9"/>
-                                <FaStar color="#e4e5e9"/>
-                                <FaStar color="#e4e5e9"/>
-                            </>
-                            )}
-                        {review.rating === 3 && (
-                            <>
-                                <FaStar color="#ffc107"/>
-                                <FaStar color="#ffc107"/>
-                                <FaStar color="#ffc107"/>
-                                <FaStar color="#e4e5e9"/>
-                                <FaStar color="#e4e5e9"/>
-                            </>
-                            )}
-                        {review.rating === 4 && (
-                            <>
-                                <FaStar color="#ffc107"/>
-                                <FaStar color="#ffc107"/>
-                                <FaStar color="#ffc107"/>
-                                <FaStar color="#ffc107"/>
-                                <FaStar color="#e4e5e9"/>
-
-                            </>
-                            )}
-                        {review.rating === 5 && (
-                            <>
-                                <FaStar color="#ffc107"/>
-                                <FaStar color="#ffc107"/>
-                                <FaStar color="#ffc107"/>
-                                <FaStar color="#ffc107"/>
-                                <FaStar color="#ffc107"/>
-                            </>
-                            )}
+                        <div className="review-inner-container">
+                            <div className='review-rating'>
+                            {review.rating === 1 && (
+                                <>
+                                    <FaStar color="#ffc107" size={20}/>
+                                    <FaStar color="#e4e5e9" size={20}/>
+                                    <FaStar color="#e4e5e9" size={20}/>
+                                    <FaStar color="#e4e5e9" size={20}/>
+                                    <FaStar color="#e4e5e9" size={20}/>
+                                </>
+                                )}
+                            {review.rating === 2 && (
+                                <>
+                                    <FaStar color="#ffc107" size={20}/>
+                                    <FaStar color="#ffc107" size={20}/>
+                                    <FaStar color="#e4e5e9" size={20}/>
+                                    <FaStar color="#e4e5e9" size={20}/>
+                                    <FaStar color="#e4e5e9" size={20}/>
+                                </>
+                                )}
+                            {review.rating === 3 && (
+                                <>
+                                    <FaStar color="#ffc107" size={20}/>
+                                    <FaStar color="#ffc107" size={20}/>
+                                    <FaStar color="#ffc107" size={20}/>
+                                    <FaStar color="#e4e5e9" size={20}/>
+                                    <FaStar color="#e4e5e9" size={20}/>
+                                </>
+                                )}
+                            {review.rating === 4 && (
+                                <>
+                                    <FaStar color="#ffc107" size={20}/>
+                                    <FaStar color="#ffc107" size={20}/>
+                                    <FaStar color="#ffc107" size={20}/>
+                                    <FaStar color="#ffc107" size={20}/>
+                                    <FaStar color="#e4e5e9" size={20}/>
+                            
+                                </>
+                                )}
+                            {review.rating === 5 && (
+                                <>
+                                    <FaStar color="#ffc107" size={20}/>
+                                    <FaStar color="#ffc107" size={20}/>
+                                    <FaStar color="#ffc107" size={20}/>
+                                    <FaStar color="#ffc107" size={20}/>
+                                    <FaStar color="#ffc107" size={20}/>
+                                </>
+                                )}
+                            </div>
+                            <div>{moment(review.createdAt).format('MM/DD/YYYY')}</div>
                         </div>
                         <div className='review'>{review.review}</div>
                         <img className='review-image' src={review.image}></img>
