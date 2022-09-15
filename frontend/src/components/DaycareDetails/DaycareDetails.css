@@ -26,7 +26,6 @@
     position: absolute;
     top: 330px;
     left: 15%;
-    z-index: 10;
 }
 
 .top-content-inner {
@@ -59,7 +58,6 @@
     box-sizing: border-box;
     transition: background-color .7s;
     width: 250px;
-    margin-bottom: 1%;
 }
 
 .update-daycare-modal-button {
@@ -79,7 +77,6 @@
     box-sizing: border-box;
     transition: background-color .7s;
     width: 250px;
-    margin-left: 1%;
 }
 
 .leave-review-modal-button {

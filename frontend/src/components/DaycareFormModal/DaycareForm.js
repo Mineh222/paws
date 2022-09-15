@@ -71,7 +71,7 @@ const CreateDaycareForm = ( {setTrigger} ) => {
     return (
         <section className={hasSubmitted && validationErrors.length > 0 ? "daycare-form-container-errors" : "daycare-form-container"}>
             <form className="create-daycare-form" onSubmit={handleSubmit}>
-                <h2 className="daycare-form-heading">Set up your doggy day care business on Paws!</h2>
+                <h2 className="daycare-form-heading">Set up your doggy daycare business on Paws!</h2>
                 {hasSubmitted && validationErrors.length > 0 && (
                     <div className="please-fix-errors">
                         Please fix the following errors before submitting:
@@ -84,7 +84,7 @@ const CreateDaycareForm = ( {setTrigger} ) => {
                 )}
                 <div className="form-container2">
                 <label>
-                    Name
+                    Daycare name
                 </label>
                     <input
                         className="daycare-name-input"

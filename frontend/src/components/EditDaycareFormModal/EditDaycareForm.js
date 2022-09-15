@@ -86,7 +86,7 @@ const EditDaycareForm = ( {setTrigger} ) => {
                 )}
                 <div className="edit-form-container2">
                 <label>
-                    Name
+                    Daycare name
                 </label>
                     <input
                         className="edit-name-input"

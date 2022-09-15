@@ -98,14 +98,14 @@ export default function DaycareDetails(){
                         <div className="top-content-inner">
                             <div>{rating()}</div>
                             <div id="reviews-length">{reviews.length} Reviews</div>
-                            <p className='daycare-businessHours'>Hours Of Operation: {daycare.businessHours}</p>
                         </div>
+                        <p className='daycare-businessHouse'>{daycare.businessHours}</p>
                     </div>
                     <div className="location-hours">
                         <h3>Location & Hours</h3>
                         <p className="daycare-address-details">Address: {daycare.address}</p>
+                        <p className='daycare-businessHours'>Hours Of Operation: {daycare.businessHours}</p>
                     </div>
-                    <p className='daycare-businessHouse'>{daycare.businessHours}</p>
                     <div className="business-about">
                         <h3 className='about-us-header'>About the Business</h3>
                         <p className="daycare-description">{daycare.description}</p>

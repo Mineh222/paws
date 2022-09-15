@@ -72,7 +72,7 @@ const CreateReviewForm = ({setTrigger}) => {
                         </ul>
                     </div>
                 )}
-                <label className="review-rating-label">Select a rating</label>
+                <label className="review-rating-label">Select a rating:</label>
                 <div className="star-rating-container">
                     <div id="review-stars">
                         {[...Array(5)].map((star, index) => {
@@ -120,7 +120,7 @@ const CreateReviewForm = ({setTrigger}) => {
                     </select>
                 </label> */}
                 <label className="review-label">
-                    Write your thoughts here!
+                    Write your thoughts here:
                 </label>
                     <textarea
                         required
@@ -128,7 +128,7 @@ const CreateReviewForm = ({setTrigger}) => {
                         onChange={e => setReview(e.target.value)}>
                     </textarea>
                 <label className="image-label">
-                    Upload an image URL
+                    Upload an image URL:
                 </label>
                     <input
                         className="review-input"
