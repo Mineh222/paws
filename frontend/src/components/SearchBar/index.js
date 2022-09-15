@@ -39,10 +39,16 @@ const SearchBar = () => {
         history.push(`/search/${wordEntry}`)
     }
 
-    const cancelSearch = () => {
-        setFilteredDaycares([]);
-        setWordEntry("")
-    }
+    useEffect(() => {
+        const closeSearch = (e) => {
+          if(e.path[0].tagName !== "INPUT"){
+            setFilteredDaycares([])
+            setWordEntry('')
+          }
+        }
+        document.addEventListener("click", closeSearch)
+        return () => document.removeEventListener("click", closeSearch)
+      })
 
     if (!daycares) return null;
 
@@ -57,7 +63,7 @@ const SearchBar = () => {
                         </button>
                         :
                         <>
-                            <CloseIcon id="close-icon" onClick={cancelSearch}/>
+                            {/* <CloseIcon id="close-icon" onClick={cancelSearch}/> */}
                             <button className="search-icon-button" type="submit" onClick={clearInput}>
                                 <SearchIcon id="search-icon" onClick={clearInput}/>
                             </button>

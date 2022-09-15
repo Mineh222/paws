@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { thunkCreateReview } from "../../store/reviews";
 import './ReviewForm.css';
+import { FaStar } from 'react-icons/fa';
 
 const CreateReviewForm = ({setTrigger}) => {
     const dispatch = useDispatch();
@@ -14,6 +15,7 @@ const CreateReviewForm = ({setTrigger}) => {
     const [image, setImage] = useState('');
     const [validationErrors, setValidationErrors] = useState([]);
     const [hasSubmitted, setHasSubmitted] = useState(false);
+    const [hover, setHover] = useState(null);
 
     useEffect(() => {
         const errors = [];
@@ -57,7 +59,7 @@ const CreateReviewForm = ({setTrigger}) => {
     const NUMBERS = [1,2,3,4,5]
 
     return (
-        <section className="review-form-container">
+        <section className={hasSubmitted && validationErrors.length > 0 ? "review-form-container-errors" : "review-form-container"}>
             <form className="create-review-form" onSubmit={handleSubmit}>
                 <h2 className="review-form-header">Let us know what you think of our doggy day care!</h2>
                 {hasSubmitted && validationErrors.length > 0 && (
@@ -70,7 +72,36 @@ const CreateReviewForm = ({setTrigger}) => {
                         </ul>
                     </div>
                 )}
-                <label className="select-label">
+                <label className="review-rating-label">Select a rating:</label>
+                <div className="star-rating-container">
+                    <div id="review-stars">
+                        {[...Array(5)].map((star, index) => {
+                            const ratingVal = index + 1;
+
+                            return (
+                                <label key={index}>
+                                    <input
+                                        className="stars"
+                                        type="radio"
+                                        id="radioBttn"
+                                        name="rating"
+                                        value={ratingVal}
+                                        onClick={() => setRating(ratingVal)}
+                                    />
+                                    <FaStar
+                                        className="star"
+                                        color={ratingVal <= (hover || rating) ? "#ffc107" : "#e4e5e9"}
+                                        size={20}
+                                        onMouseEnter={() => setHover(ratingVal)}
+                                        onMouseLeave={() => setHover(null)}
+                                    />
+                                </label>
+                            )
+                        })}
+                    </div>
+
+                </div>
+                {/* <label className="select-label">
                     Select a rating
                     <select
                         className="select-rating"
@@ -87,9 +118,9 @@ const CreateReviewForm = ({setTrigger}) => {
                                 </option>
                         ))}
                     </select>
-                </label>
+                </label> */}
                 <label className="review-label">
-                    Write your thoughts here!
+                    Write your thoughts here:
                 </label>
                     <textarea
                         required
@@ -97,7 +128,7 @@ const CreateReviewForm = ({setTrigger}) => {
                         onChange={e => setReview(e.target.value)}>
                     </textarea>
                 <label className="image-label">
-                    Upload an image URL
+                    Upload an image URL:
                 </label>
                     <input
                         className="review-input"

@@ -1,9 +1,25 @@
 .user-profile-container {
-    position: absolute;
     margin-top: 60px;
     border-top: 2px solid #ebebeb;
-    width: 99%;
+    width: 100%;
     overflow-x: hidden;
+    display: flex;
+    flex-direction: row;
+}
+
+.user-profile-left {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+}
+
+.user-profile-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 10%;
+    margin-top: 5px;
+    margin-left: -30px;
 }
 
 .username-profile-page {
@@ -15,6 +31,7 @@
     display: flex;
     margin-left: 30px;
     overflow-x: hidden;
+    width: 2000px
 }
 
 
@@ -56,18 +73,15 @@
     padding-bottom: 10px;
 }
 
-.message-image {
-    width: 22%;
-    border-radius: 100%;
-    margin-top: -7%;
-    margin-left: 70%;
-    position: absolute;
+.message-text {
+    text-align: center;
+    width: 300px;
+    font-size: 15px;
 }
 
-.message-text {
-    position: absolute;
-    margin-left: 63.5%;
-    margin-top: 3.5%;
+.message-image {
+    border-radius: 100%;
+    width: 300px;
 }
 
 @media only screen and (min-width: 1280px) {
@@ -117,4 +131,8 @@
 
 #my-daycares-heading, #saved-daycares-heading {
     margin-left: 30px;
+}
+
+#username, #email {
+    font-weight: bold;
 }

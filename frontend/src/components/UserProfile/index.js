@@ -43,78 +43,86 @@ export default function UserProfile(){
     return (
         <div className='profile-page-container'>
             <main className='user-profile-container'>
-                <div className='username-profile-page'>
-                    <h3 className="message-text">Thank you for joining the Paws family!</h3>
-                    <h2>Account Information:</h2>
-                    <p>Username: {sessionUser.username}</p>
-                    <p>Email Address: {sessionUser.email}</p>
-                </div>
-                <div className="add-daycare-user-page">
-                    <DaycareFormModal />
-                </div>
-                <div className='thank-you-message'>
-                    <img className="message-image" alt='message-img' src="https://www.dogtiredsc.com/wp-content/uploads/2021/03/daycare.jpg"></img>
-                </div>
-                <div className="profile-page-buttons">
-                    <button className={page === 0 ? "button1" : "button2"} onClick={() => setPage(0)}>
-                        <div>
-                            My Doggy Daycares
-                        </div>
-                    </button>
-                    <button className={page === 1 ? "button3" : "button4"} onClick={() => setPage(1)}>
-                        <div>
-                            Saved Daycares
-                        </div>
-                    </button>
-                </div>
-                {page === 0 && (
-                    <>
-                        {daycare.length > 0 && (
-                            <h2 id="my-daycares-heading">My Daycares:</h2>
-                        )}
-                        <div className="all-daycares-user-page">
-                        {daycare.map(daycare => {
-                            return (
-                                <div key={daycare.id} className='daycares-container-user-page'>
-                                        <Link className="user-profile-link-to-daycare" to={`/daycares/${daycare.id}`}>
-                                            <h2 className='daycare-name-user-page'>{daycare.name}</h2>
-                                            <img className="daycare-img-user-page" alt='daycare-img-user-page' src={daycare.image}></img>
-                                        </Link>
-                                </div>
-                            )
-                        })}
-                        {daycare.length === 0 && (
-                            <div className="no-daycares-yet">
-                                <h2>No daycares yet!</h2>
+                <div className="user-profile-left">
+                    <div className='username-profile-page'>
+                        {/* <h3 className="message-text">Thank you for joining the Paws family!</h3> */}
+                        <h2>Account Information:</h2>
+                        <p><span id="username">Username:</span> {sessionUser.username}</p>
+                        <p><span id="email">Email Address: </span> {sessionUser.email}</p>
+                    </div>
+                    <div className="add-daycare-user-page">
+                        <DaycareFormModal />
+                    </div>
+                    {/* <div className='thank-you-message'>
+                        <img className="message-image" alt='message-img' src="https://www.dogtiredsc.com/wp-content/uploads/2021/03/daycare.jpg"></img>
+                    </div> */}
+                    <div className="profile-page-buttons">
+                        <button className={page === 0 ? "button1" : "button2"} onClick={() => setPage(0)}>
+                            <div>
+                                My Doggy Daycares
                             </div>
-                        )}
-                        </div>
-                    </>
-                )}
-                {page === 1 && (
-                    <>
-                        {favorites.length > 0 && (
-                            <h2 id="saved-daycares-heading">Saved Daycares:</h2>
-                        )}
-                        <div className="all-daycares-user-page">
-                            {favorites.map(favorite => {
+                        </button>
+                        <button className={page === 1 ? "button3" : "button4"} onClick={() => setPage(1)}>
+                            <div>
+                                Saved Daycares
+                            </div>
+                        </button>
+                    </div>
+                    {page === 0 && (
+                        <>
+                            {daycare.length > 0 && (
+                                <h2 id="my-daycares-heading">My Daycares:</h2>
+                            )}
+                            <div className="all-daycares-user-page">
+                            {daycare.map(daycare => {
                                 return (
-                                    <div key={favorite.id} className='daycares-container-user-page'>
-                                        <Link className="user-profile-link-to-daycare" to={`/daycares/${favorite.daycareId}`}>
-                                            <h2 className='daycare-name-user-page'>{favorite.Daycare?.name}</h2>
-                                            <img className="daycare-img-user-page" alt='daycare-img-user-page' src={favorite.Daycare?.image}></img>
-                                        </Link>
+                                    <div key={daycare.id} className='daycares-container-user-page'>
+                                            <Link className="user-profile-link-to-daycare" to={`/daycares/${daycare.id}`}>
+                                                <h2 className='daycare-name-user-page'>{daycare.name}</h2>
+                                                <img className="daycare-img-user-page" alt='daycare-img-user-page' src={daycare.image}></img>
+                                            </Link>
                                     </div>
                                 )
                             })}
-                            {favorites.length === 0 && (
+                            {daycare.length === 0 && (
                                 <div className="no-daycares-yet">
-                                    <h2>No saved daycares yet!</h2>
+                                    <h2>No daycares yet!</h2>
                                 </div>
                             )}
-                        </div>
-                    </>
-                )}
+                            </div>
+                        </>
+                    )}
+                    {page === 1 && (
+                        <>
+                            {favorites.length > 0 && (
+                                <h2 id="saved-daycares-heading">Saved Daycares:</h2>
+                            )}
+                            <div className="all-daycares-user-page">
+                                {favorites.map(favorite => {
+                                    return (
+                                        <div key={favorite.id} className='daycares-container-user-page'>
+                                            <Link className="user-profile-link-to-daycare" to={`/daycares/${favorite.daycareId}`}>
+                                                <h2 className='daycare-name-user-page'>{favorite.Daycare?.name}</h2>
+                                                <img className="daycare-img-user-page" alt='daycare-img-user-page' src={favorite.Daycare?.image}></img>
+                                            </Link>
+                                        </div>
+                                    )
+                                })}
+                                {favorites.length === 0 && (
+                                    <div className="no-daycares-yet">
+                                        <h2>No saved daycares yet!</h2>
+                                    </div>
+                                )}
+                            </div>
+                        </>
+                    )}
+                </div>
+                <div className='user-profile-right'>
+                    <h3 className="message-text">Thank you for joining the Paws family!</h3>
+                    <div className='thank-you-message'>
+                        <img className="message-image" alt='message-img' src="https://www.dogtiredsc.com/wp-content/uploads/2021/03/daycare.jpg"></img>
+                    </div>
+                </div>
             </main>
         </div>
     )
