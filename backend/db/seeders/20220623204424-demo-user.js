@@ -15,49 +15,49 @@ module.exports = {
         hashedPassword: bcrypt.hashSync('password')
       },
       {
-        email: 'user1@gmail.com',
-        username: 'FakeUser1',
-        hashedPassword: bcrypt.hashSync('password3')
+        email: 'cinny@gmail.com',
+        username: 'cinnamon',
+        hashedPassword: bcrypt.hashSync('password')
       },
       {
-        email: 'user2@gmail.com',
-        username: 'FakeUser2',
-        hashedPassword: bcrypt.hashSync('password3')
+        email: 'anthony@gmail.com',
+        username: 'anthonyyyb',
+        hashedPassword: bcrypt.hashSync('password')
       },
       {
-        email: 'user3@gmail.com',
-        username: 'FakeUser3',
-        hashedPassword: bcrypt.hashSync('password3')
+        email: 'michael@gmail.com',
+        username: 'michael22',
+        hashedPassword: bcrypt.hashSync('password')
       },
       {
-        email: 'user4@gmail.com',
-        username: 'FakeUser4',
-        hashedPassword: bcrypt.hashSync('password3')
+        email: 'angie@gmail.com',
+        username: 'angiighar',
+        hashedPassword: bcrypt.hashSync('password')
       },
       {
-        email: 'user5@gmail.com',
-        username: 'FakeUser5',
-        hashedPassword: bcrypt.hashSync('password3')
+        email: 'buddy@gmail.com',
+        username: 'buddie',
+        hashedPassword: bcrypt.hashSync('password')
       },
       {
-        email: 'user6@gmail.com',
-        username: 'FakeUser6',
-        hashedPassword: bcrypt.hashSync('password3')
+        email: 'aroob@gmail.com',
+        username: 'rubyy123',
+        hashedPassword: bcrypt.hashSync('password')
       },
       {
-        email: 'user7@gmail.com',
-        username: 'FakeUser7',
-        hashedPassword: bcrypt.hashSync('password3')
+        email: 'jason@gmail.com',
+        username: 'jason22',
+        hashedPassword: bcrypt.hashSync('password')
       },
       {
-        email: 'user8@gmail.com',
-        username: 'FakeUser8',
-        hashedPassword: bcrypt.hashSync('password3')
+        email: 'leo@gmail.com',
+        username: 'leodadog',
+        hashedPassword: bcrypt.hashSync('password')
       },
       {
-        email: 'user9@gmail.com',
-        username: 'FakeUser9',
-        hashedPassword: bcrypt.hashSync('password3')
+        email: 'jax@gmail.com',
+        username: 'goldenj',
+        hashedPassword: bcrypt.hashSync('password')
       }
     ], {});
   },
@@ -65,7 +65,7 @@ module.exports = {
   down: (queryInterface, Sequelize) => {
     const Op = Sequelize.Op;
     return queryInterface.bulkDelete('Users', {
-      username: { [Op.in]: ['Demo', 'Mineh', 'FakeUser1', 'FakeUser2', 'FakeUser3', 'FakeUser4', 'FakeUser5', 'FakeUser6', 'FakeUser7', 'FakeUser8', 'FakeUser9'] }
+      username: { [Op.in]: ['Demo', 'Mineh', 'cinnamon', 'anthonyyyb', 'michael22', 'angiighar', 'buddie', 'rubyy123', 'jason22', 'leodadog', 'goldenj'] }
     }, {});
   }
 };
