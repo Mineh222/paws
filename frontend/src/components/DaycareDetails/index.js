@@ -43,17 +43,28 @@ export default function DaycareDetails(){
                 {Math.round(average) === 0 && (
                     <>
                         <FaStar FaStar color="#e4e5e9" size={30}/>
+                        <FaStar FaStar color="#e4e5e9" size={30}/>
+                        <FaStar FaStar color="#e4e5e9" size={30}/>
+                        <FaStar FaStar color="#e4e5e9" size={30}/>
+                        <FaStar FaStar color="#e4e5e9" size={30}/>
                     </>
                 )}
                 {Math.round(average) === 1 && (
                     <>
                         <FaStar FaStar color="#ffc107" size={30}/>
+                        <FaStar FaStar color="#e4e5e9" size={30}/>
+                        <FaStar FaStar color="#e4e5e9" size={30}/>
+                        <FaStar FaStar color="#e4e5e9" size={30}/>
+                        <FaStar FaStar color="#e4e5e9" size={30}/>
                     </>
                 )}
                 {Math.round(average) === 2 && (
                     <>
                         <FaStar FaStar color="#ffc107" size={30}/>
                         <FaStar FaStar color="#ffc107" size={30}/>
+                        <FaStar FaStar color="#e4e5e9" size={30}/>
+                        <FaStar FaStar color="#e4e5e9" size={30}/>
+                        <FaStar FaStar color="#e4e5e9" size={30}/>
                     </>
                 )}
                 {Math.round(average) === 3 && (
@@ -61,6 +72,8 @@ export default function DaycareDetails(){
                         <FaStar FaStar color="#ffc107" size={30}/>
                         <FaStar FaStar color="#ffc107" size={30}/>
                         <FaStar FaStar color="#ffc107" size={30}/>
+                        <FaStar FaStar color="#e4e5e9" size={30}/>
+                        <FaStar FaStar color="#e4e5e9" size={30}/>
                     </>
                 )}
                 {Math.round(average) === 4 && (
@@ -69,6 +82,7 @@ export default function DaycareDetails(){
                         <FaStar FaStar color="#ffc107" size={30}/>
                         <FaStar FaStar color="#ffc107" size={30}/>
                         <FaStar FaStar color="#ffc107" size={30}/>
+                        <FaStar FaStar color="#e4e5e9" size={30}/>
                     </>
                 )}
                 {Math.round(average) === 5 && (

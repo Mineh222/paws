@@ -70,7 +70,7 @@ export default function Reviews() {
                                     <FaStar color="#ffc107" size={20}/>
                                     <FaStar color="#ffc107" size={20}/>
                                     <FaStar color="#e4e5e9" size={20}/>
-                            
+
                                 </>
                                 )}
                             {review.rating === 5 && (
@@ -83,7 +83,7 @@ export default function Reviews() {
                                 </>
                                 )}
                             </div>
-                            <div>{moment(review.createdAt).format('MM/DD/YYYY')}</div>
+                            <div id="review-date">{moment(review.createdAt).format('MM/DD/YYYY')}</div>
                         </div>
                         <div className='review'>{review.review}</div>
                         <img className='review-image' src={review.image}></img>

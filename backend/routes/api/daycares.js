@@ -11,10 +11,7 @@ const { requireAuth } = require('../../utils/auth')
 
 router.get('/', asyncHandler(async (req,res) => {
     const daycares = await Daycare.findAll({
-        order: [
-            ['id', 'DESC'],
-            ['name', 'ASC'],
-        ]
+        include: Review
     })
     return res.json(daycares)
 }));

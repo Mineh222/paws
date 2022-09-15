@@ -151,6 +151,8 @@
     transition: border .3s;
     padding-left: 2px;
     padding-bottom: 2px;
+    color: red;
+    font-weight: 600;
 }
 
 /* .logout-button:hover {
@@ -164,6 +166,7 @@
     padding-bottom: 2px;
     border-bottom: 1px solid lightgray;
     width: 128px;
+    font-weight: 600;
 }
 
 .email {
@@ -173,6 +176,22 @@
     padding-bottom: 2px;
     border-bottom: 1px solid lightgray;
     width: 128px;
+    font-weight: 600;
+}
+
+.about-dev {
+    float: left;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding-left: 2px;
+    padding-bottom: 2px;
+    border-bottom: 1px solid lightgray;
+    width: 128px;
+    font-weight: 600;
+}
+
+#about-link {
+    text-decoration: none;
+    color: black;
 }
 
 .search-bar {

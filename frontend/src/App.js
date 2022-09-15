@@ -10,6 +10,7 @@ import HomePage from "./components/HomePage";
 import UserProfile from "./components/UserProfile";
 import SearchResults from "./components/SearchResults";
 import PageNotFound from "./components/404";
+import AboutMe from "./components/AboutMe";
 
 function App() {
   const dispatch = useDispatch();
@@ -40,6 +41,9 @@ function App() {
           </Route>
           <Route path='/search/:searchword'>
             <SearchResults />
+          </Route>
+          <Route path='/about-me'>
+            <AboutMe />
           </Route>
           <Route>
             <PageNotFound />

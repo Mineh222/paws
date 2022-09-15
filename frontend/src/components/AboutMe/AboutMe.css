@@ -1,0 +1,105 @@
+.about-me-container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    margin-top: 100px;
+    /* border-top: 2px solid #ebebeb;
+    border-bottom: 2px solid #ebebeb; */
+    width: 100%;
+    max-width: 1500px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 18px;
+    height: 500px;
+    background-color: white;
+    box-shadow: 0px 0px 5px rgba(0,0,0,.3);
+}
+
+.title-left {
+    border-bottom: 3px solid pink;
+    width: 110px;
+}
+
+.title-socials {
+    border-bottom: 3px solid pink;
+    width: 53px;
+}
+
+.about-me-left {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    margin-top: 30px;
+}
+
+.about-me-top-left {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+#my-pic {
+    width: 180px;
+}
+
+.about-me-right {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    margin-top: 10px;
+    width: 40%;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.resume {
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
+
+.github-icon {
+    font-size: 30px;
+    color: black;
+}
+
+.github-icon:hover {
+  transform: scale(1.3);
+  color: black;
+}
+
+.angel-list-icon {
+  font-size: 30px;
+  color: black;
+}
+
+.angel-list-icon:hover {
+  transform: scale(1.3);
+  color: black;
+}
+
+.linkedin-icon {
+  font-size: 30px;
+}
+
+.linkedin-icon:hover {
+  transform: scale(1.15);
+  color: black;
+}
+
+#icon-title {
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+#about-socials {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: center;
+}
+
+.resume:hover {
+  color: #0078ff;
+  text-decoration: none;
+  transition: all 0.5s ease-in-out;
+}
