@@ -6,10 +6,10 @@ export default function AboutMe() {
         <div className="about-me-container">
             <div className="about-me-left">
                 <div className="about-me-top-left">
-                    <div class="about-img">
+                    <div className="about-img">
                         <img id="my-pic"src="https://i.postimg.cc/FKHJkSMs/12-F0951-E-6-A3-D-4881-8962-FF5-C33403-F43.jpg" alt="developers-photo"></img>
                     </div>
-                    <div class="about-info">
+                    <div className="about-info">
                         <p><span className="title-s" id="bold">Name: </span> <span>Mineh Gharabegi</span></p>
                         <p><span className="title-s" id="bold">Profile: </span> <span>Full Stack Developer</span></p>
                         <p><span className="title-s" id="bold">Email: </span> <span>minehgharabegi@gmail.com</span></p>

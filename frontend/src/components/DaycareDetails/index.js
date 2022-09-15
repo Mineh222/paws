@@ -113,7 +113,7 @@ export default function DaycareDetails(){
                             <div>{rating()}</div>
                             <div id="reviews-length">{reviews.length} Reviews</div>
                         </div>
-                        <p className='daycare-businessHouse'>{daycare.businessHours}</p>
+                        <p className='daycare-hours'>{daycare.businessHours}</p>
                     </div>
                     <div className="location-hours">
                         <h3>Location & Hours</h3>
@@ -145,7 +145,7 @@ export default function DaycareDetails(){
                             <div>{rating()}</div>
                             <div id="reviews-length">{reviews.length} Reviews</div>
                         </div>
-                        <p className='daycare-businessHouse'>{daycare.businessHours}</p>
+                        <p className={reviews.length > 0 ? 'daycare-hours' : 'daycare-hours2'}>{daycare.businessHours}</p>
                     </div>
             <div className="logged-in-daycare-buttons">
                 {sessionUser.id === daycare.ownerId && (

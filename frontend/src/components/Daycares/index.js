@@ -102,8 +102,19 @@ export default function Daycares(){
                             <div className="daycare-info-container">
                                 <h2 className='daycare-name'>{daycare.name}</h2>
                                 <div className='ratings'>
+                                    {daycare?.Reviews && daycare?.Reviews.length === 0 && (
+                                        <div className="average-stars">
+                                          <FaStar FaStar color="#e4e5e9" size={20}/>
+                                          <FaStar FaStar color="#e4e5e9" size={20}/>
+                                          <FaStar FaStar color="#e4e5e9" size={20}/>
+                                          <FaStar FaStar color="#e4e5e9" size={20}/>
+                                          <FaStar FaStar color="#e4e5e9" size={20}/>
+                                        </div>
+                                    )}
                                     <div>{rating(daycare?.Reviews)}</div>
+                                    {daycare?.Reviews && (
                                     <div>{daycare?.Reviews.length}</div>
+                                    )}
                                 </div>
                                 <div className="daycare-business-hours"><span id="bold">Business Hours:</span> {daycare.businessHours}</div>
                                 <div className="daycare-phone-number"><span id="bold">Phone Number:</span>  &#40;{daycare.phoneNumber.slice(0,3)}&#41; {daycare.phoneNumber.slice(3,6)} - {daycare.phoneNumber.slice(6,10)}</div>
