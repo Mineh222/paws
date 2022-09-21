@@ -57,7 +57,8 @@
     color: rgba(45,46,47,1);
     box-shadow: none;
     box-sizing: border-box;
-    transition: background-color .7s
+    transition: background-color .7s;
+    cursor: pointer;
 }
 
 .login-button:hover {

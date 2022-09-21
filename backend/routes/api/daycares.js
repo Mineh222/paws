@@ -132,7 +132,8 @@ router.get('/search/:searchword', asyncHandler(async (req, res) => {
             name: {
                 [Sequelize.Op.iLike]: '%'+searchword+'%'
             }
-        }
+        },
+        include: [Review]
     })
     return res.json(daycares)
 }))

@@ -1,11 +1,14 @@
 .signup-form-container {
-    width: 100%;
-    padding-top: 7%;
+    margin-top: 60px;
+    border-top: 2px solid #ebebeb;
     display: flex;
+    flex-direction: row;
     justify-content: center;
+    align-items: center;
 }
 
 .signup-form {
+    margin-top: 100px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -28,6 +31,7 @@
     box-sizing: border-box;
     transition: background-color .7s;
     margin: 5px;
+    cursor: pointer;
 }
 
 .signup-button:hover {
@@ -41,6 +45,7 @@
 }
 
 .sign-up-pic {
+    margin-top: 100px;
     border-radius: 100%;
     margin-left: 5%;
 }
