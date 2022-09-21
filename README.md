@@ -25,8 +25,8 @@ Paws was built using the following technologies:
 * Users can also sign-up on Paws, giving them access to create daycares and leave reviews.
 * Errors are rendered in the event of inputting invalid credentials, and must be corrected before submitting the form.
 
-<img src="https://i.postimg.cc/C1zJdHKD/Screen-Shot-2022-07-04-at-7-11-56-PM.png"></img>
-<img src="https://i.postimg.cc/x1fvcyxC/Screen-Shot-2022-07-04-at-7-12-12-PM.png"></img>
+<img src="https://i.postimg.cc/T1dQ5DZM/Screen-Shot-2022-09-20-at-3-44-33-PM.png"></img>
+<img src="https://i.postimg.cc/43R6hc9L/Screen-Shot-2022-09-20-at-3-49-27-PM.png"></img>
 
 ### Doggy Daycare Businesses (Create, Read, Update, Delete)
 
@@ -35,26 +35,24 @@ Paws was built using the following technologies:
 * Doggy Daycares can be browsed on the doggy daycare page, accessed from the button on the navigation bar.
 * Logged in users can also view all their doggy daycares on their profile page.
 
-<img src="https://i.postimg.cc/Gprmcqq7/Screen-Shot-2022-07-04-at-7-38-24-PM.png"></img>
-<img src="https://i.postimg.cc/hjZD1gg6/Screen-Shot-2022-07-04-at-7-38-39-PM.png"></img>
-<img src="https://i.postimg.cc/7YHvYjkT/Screen-Shot-2022-07-04-at-7-44-14-PM.png"></img>
-<img src="https://i.postimg.cc/L8G0fbrD/Screen-Shot-2022-07-04-at-7-44-41-PM.png"></img>
-<img src="https://i.postimg.cc/T2Q7Qwzp/Screen-Shot-2022-07-04-at-7-44-57-PM.png"></img>
-
+<img src="https://i.postimg.cc/63Yb0cV5/Screen-Shot-2022-09-20-at-7-50-53-PM.png"></img>
+<img src="https://i.postimg.cc/TYZ7Cpbm/Screen-Shot-2022-09-20-at-7-52-03-PM.png"></img>
+<img src="https://i.postimg.cc/VvXxFnN7/Screen-Shot-2022-09-20-at-8-01-15-PM.png"></img>
+<img src="https://i.postimg.cc/9Mdb8pGq/Screen-Shot-2022-09-20-at-8-03-54-PM.png"></img>
 
 ### Reviews (Create, Read, Delete)
 
 * All users will be able to read reviews for specific doggy daycares.
 * Logged in users can create or delete their reviews on specific doggy daycare pages.
 
-<img src="https://i.postimg.cc/SKpfmFBB/Screen-Shot-2022-07-04-at-7-49-38-PM.png"></img>
-<img src="https://i.postimg.cc/7Z1TMCRR/Screen-Shot-2022-07-04-at-7-51-56-PM.png"></img>
+<img src="https://i.postimg.cc/sX4P92rY/Screen-Shot-2022-09-20-at-8-04-42-PM.png"></img>
+<img src="https://i.postimg.cc/26rh6fZV/Screen-Shot-2022-09-20-at-8-05-44-PM.png"></img>
 
-## Technical Challenges
+## Technical Code
 
-* Building a profile page.
-* Currently filters all doggy daycares to only display daycares owned by the logged in user.
-* Reviews left by the logged in user were also displayed on the profile page, but has since been discarded due to bugs (will be implemented in the future). 
+* I enjoyed building a user profile page.
+* Filters all doggy daycares to only display daycares owned by the logged in user.
+* Saved doggy day cares can also be viewed here under the "Saved daycares" tab.
 
 ```JavaScript
 const dispatch = useDispatch();
@@ -78,8 +76,6 @@ const dispatch = useDispatch();
 ```
 ## Future Improvements
 
-* Add all reviews left by a user to their profile page.
-* Search bar for searching specific doggy daycares.
 * Google maps for directions to a doggy daycare.
 
 ## Installation Instructions
