@@ -111,7 +111,15 @@ export default function DaycareDetails(){
                         </div>
                         <div className="top-content-inner">
                             <div>{rating()}</div>
-                            <div id="reviews-length">{reviews.length} Reviews</div>
+                            {reviews.length === 0 && (
+                                <div id="reviews-length">{reviews.length} Reviews</div>
+                            )}
+                            {reviews.length === 1 && (
+                                <div id="reviews-length">{reviews.length} Review</div>
+                            )}
+                            {reviews.length > 1 && (
+                                <div id="reviews-length">{reviews.length} Reviews</div>
+                            )}
                         </div>
                         <p className='daycare-hours'>{daycare.businessHours}</p>
                     </div>
@@ -143,7 +151,15 @@ export default function DaycareDetails(){
                         </div>
                         <div className="top-content-inner">
                             <div>{rating()}</div>
-                            <div id="reviews-length">{reviews.length} Reviews</div>
+                            {reviews.length === 0 && (
+                                <div id="reviews-length">{reviews.length} Reviews</div>
+                            )}
+                            {reviews.length === 1 && (
+                                <div id="reviews-length">{reviews.length} Review</div>
+                            )}
+                            {reviews.length > 1 && (
+                                <div id="reviews-length">{reviews.length} Reviews</div>
+                            )}
                         </div>
                         <p className={reviews.length > 0 ? 'daycare-hours' : 'daycare-hours2'}>{daycare.businessHours}</p>
                     </div>
