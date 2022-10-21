@@ -72,6 +72,7 @@
     box-sizing: border-box;
     transition: background-color .7s;
     width: 250px;
+    cursor: pointer;
 }
 
 .update-daycare-modal-button {
@@ -91,6 +92,7 @@
     box-sizing: border-box;
     transition: background-color .7s;
     width: 250px;
+    cursor: pointer;
 }
 
 .leave-review-modal-button {
@@ -109,7 +111,7 @@
     box-shadow: none;
     box-sizing: border-box;
     transition: background-color .7s;
-    /* width: 250px; */
+    cursor: pointer;
 }
 
 .delete-daycare-button:hover, .update-daycare-modal-button:hover, .leave-review-modal-button:hover {

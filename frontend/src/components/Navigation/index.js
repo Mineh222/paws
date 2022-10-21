@@ -27,28 +27,31 @@ function Navigation({ isLoaded }){
   // }
 
   return (
-    <div className='logo-container'>
-      <NavLink className='home-link' exact to="/">
-        <div>Paws</div>
-        <img className='paws-logo' alt="paws-logo" src="https://i.postimg.cc/rp5WTVPC/logo.png"></img>
-      </NavLink>
-      {/* {isLoaded && sessionLinks} */}
+    <nav className='nav-container'>
+      <div className='home-link'>
+        <NavLink className='home-link' exact to="/">
+          <div>Paws</div>
+          <img className='paws-logo' alt="paws-logo" src="https://i.postimg.cc/rp5WTVPC/logo.png"></img>
+        </NavLink>
+      </div>
       <div className='search-bar'>
         <SearchBar />
       </div>
-      <NavLink className='daycares-link' exact to="/daycares">Doggy Daycares</NavLink>
-      {sessionUser ?
-        <div className="loggedin-user">
-          <ProfileButton user={sessionUser} />
-          <NavLink className='profile-link' to={`/profile`}>My Profile</NavLink>
-        </div>
-        :
-        <div className='signup'>
-        <NavLink className='signup-link' to="/signup">Sign Up</NavLink>
-        <LoginFormModal />
+      <div className="nav-bar-right">
+        <NavLink className='daycares-link' exact to="/daycares">Doggy Daycares</NavLink>
+        {sessionUser ?
+          <div className="loggedin-user">
+            <ProfileButton user={sessionUser} />
+            <NavLink className='profile-link' to={`/profile`}>My Profile</NavLink>
+          </div>
+          :
+          <div className='signup'>
+          <NavLink className='signup-link' to="/signup">Sign Up</NavLink>
+          <LoginFormModal />
+          </div>
+        }
       </div>
-      }
-    </div>
+    </nav>
   );
 }
 

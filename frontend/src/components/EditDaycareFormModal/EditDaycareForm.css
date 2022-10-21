@@ -54,6 +54,7 @@
     transition: background-color .7s;
     margin-top: 10px;
     width: 235px;
+    cursor: pointer;
 }
 
 .edit-daycare-button:hover {
