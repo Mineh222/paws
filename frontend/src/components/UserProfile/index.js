@@ -120,7 +120,7 @@ export default function UserProfile(){
                 <div className='user-profile-right'>
                     <h3 className="message-text">Thank you for joining the Paws family!</h3>
                     <div className='thank-you-message'>
-                        <img className="message-image" alt='message-img' src="https://www.dogtiredsc.com/wp-content/uploads/2021/03/daycare.jpg"></img>
+                        <img className="profile-page-ty-message-image" alt='profile-page-ty-message-image' src="https://www.dogtiredsc.com/wp-content/uploads/2021/03/daycare.jpg"></img>
                     </div>
                 </div>
             </main>

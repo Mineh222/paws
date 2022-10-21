@@ -80,12 +80,12 @@
     font-size: 15px;
 }
 
-.message-image {
+.profile-page-ty-message-image {
     border-radius: 100%;
     width: 300px;
 }
 
-@media only screen and (min-width: 1280px) {
+/* @media only screen and (min-width: 1280px) {
     .message-image {
         margin-top: -4%;
         width: 18%;
@@ -93,7 +93,7 @@
     .message-text {
         margin-left: 69%;
     }
-}
+} */
 
 .no-daycares-yet {
     height: 300px;
